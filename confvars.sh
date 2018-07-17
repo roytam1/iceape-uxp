@@ -3,16 +3,16 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-MOZ_APP_BASENAME=SeaMonkey
-MOZ_APP_VENDOR=Mozilla
-MOZ_APP_NAME=seamonkey
-MOZ_APP_DISPLAYNAME=SeaMonkey
+MOZ_APP_BASENAME=Iceape-UXP
+MOZ_APP_VENDOR=Hyperbola
+MOZ_APP_NAME=iceape-uxp
+MOZ_APP_DISPLAYNAME=Iceape-UXP
 MOZ_LDAP_XPCOM=1
 MOZ_COMPOSER=1
 MOZ_DISABLE_EXPORT_JS=1
 MOZ_SUITE=1
-MOZ_BRANDING_DIRECTORY=suite/branding/nightly
-MOZ_OFFICIAL_BRANDING_DIRECTORY=suite/branding/nightly
+MOZ_BRANDING_DIRECTORY=suite/branding/iceape
+MOZ_OFFICIAL_BRANDING_DIRECTORY=suite/branding/iceape
 MOZ_EXTENSIONS_DEFAULT=" inspector irc gio"
 MOZ_UPDATER=1
 # This should usually be the same as the value MAR_CHANNEL_ID.

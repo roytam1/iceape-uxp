@@ -92,7 +92,7 @@ pref("browser.findbar.enabled", true);
 pref("browser.doorhanger.enabled", true);
 
 // search engines URL
-pref("browser.search.searchEnginesURL", "https://addons.mozilla.org/%LOCALE%/%APP%/search/?atype=4");
+pref("browser.search.searchEnginesURL", "https://wiki.hyperbola.info/doku.php?id=en:project:iceape-uxp_addons");
 
 // pointer to the default engine name
 pref("browser.search.defaultenginename", "chrome://communicator-region/locale/region.properties");
@@ -592,13 +592,13 @@ pref("extensions.autoDisableScopes", 15);
 // Preferences for AMO integration
 pref("extensions.getAddons.cache.enabled", true);  // also toggles personalized recommendations
 pref("extensions.getAddons.maxResults", 15);
-pref("extensions.getAddons.get.url", "https://services.addons.mozilla.org/%LOCALE%/%APP%/api/%API_VERSION%/search/guid:%IDS%?src=seamonkey&appOS=%OS%&appVersion=%VERSION%");
+pref("extensions.getAddons.get.url", "https://wiki.hyperbola.info/doku.php?id=en:project:iceape-uxp_addons");
 pref("extensions.getAddons.getWithPerformance.url", "https://services.addons.mozilla.org/%LOCALE%/%APP%/api/%API_VERSION%/search/guid:%IDS%?src=seamonkey&appOS=%OS%&appVersion=%VERSION%&tMain=%TIME_MAIN%&tFirstPaint=%TIME_FIRST_PAINT%&tSessionRestored=%TIME_SESSION_RESTORED%");
-pref("extensions.getAddons.link.url", "https://addons.mozilla.org/%LOCALE%/%APP%/");
+pref("extensions.getAddons.link.url", "https://wiki.hyperbola.info/doku.php?id=en:project:iceape-uxp_addons");
 pref("extensions.getAddons.recommended.url", "https://services.addons.mozilla.org/%LOCALE%/%APP%/api/%API_VERSION%/list/recommended/all/%MAX_RESULTS%/%OS%/%VERSION%?src=seamonkey");
-pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/%LOCALE%/%APP%/search?q=%TERMS%");
-pref("extensions.getAddons.search.url", "https://services.addons.mozilla.org/%LOCALE%/%APP%/api/%API_VERSION%/search/%TERMS%/all/%MAX_RESULTS%/%OS%/%VERSION%/%COMPATIBILITY_MODE%?src=seamonkey");
-pref("extensions.webservice.discoverURL", "https://services.addons.mozilla.org/%LOCALE%/%APP%/discovery/pane/%VERSION%/%OS%");
+pref("extensions.getAddons.search.browseURL", "https://wiki.hyperbola.info/doku.php?id=en:project:iceape-uxp_addons");
+pref("extensions.getAddons.search.url", "https://wiki.hyperbola.info/doku.php?id=en:project:iceape-uxp_addons");
+pref("extensions.webservice.discoverURL", "https://wiki.hyperbola.info/doku.php?id=en:project:iceape-uxp_addons");
 
 // getMoreThemes is used by our UI under our switch theme menu
 pref("extensions.getMoreThemesURL", "chrome://branding/locale/brand.properties");

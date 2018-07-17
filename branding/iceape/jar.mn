@@ -12,3 +12,9 @@ comm.jar:
   content/branding/aboutRights.xhtml                      (content/aboutRights.xhtml)
   content/branding/messenger-start-bg.png                 (content/messenger-start-bg.png)
   content/branding/messenger-start-hdr.png                (content/messenger-start-hdr.png)
+
+ice.jar:
+% content ice %content/ice/
+% locale ice en-US %locale/en-US/ice/
+  content/ice/ice.xhtml      (ice.xhtml)
+  locale/en-US/ice/ice.dtd   (ice.dtd)

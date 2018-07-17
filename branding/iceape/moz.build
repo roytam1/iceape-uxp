@@ -4,6 +4,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 JAR_MANIFESTS += ['jar.mn']
+EXTRA_COMPONENTS += ['aboutIce.js', 'aboutIce.manifest']
 
 # Note: mac icons are handled in /suite/app during the final application
 # packaging
