@@ -1,0 +1,40 @@
+# vim: set filetype=python:
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+CONFIGURE_SUBST_FILES += ['installer/Makefile']
+
+# This should match /suite/installer/moz.build.
+if 'pre' in CONFIG['MOZ_APP_VERSION'] or 'a' in CONFIG['MOZ_APP_VERSION']:
+    DIRS += ['debugQA']
+
+DIRS += [
+    'browser',
+    'common',
+    'feeds/public',
+    'feeds/src',
+    'locales',
+    'mailnews',
+    'modules',
+    'themes/classic',
+    'themes/modern',
+    'profile',
+    'security',
+    'shell/public',
+    'shell/src',
+    'smile',
+]
+
+if CONFIG['MAKENSISU']:
+    DIRS += ['installer/windows']
+
+if CONFIG['MOZ_BUNDLED_FONTS']:
+    DIRS += ['/mozilla/browser/fonts']
+
+# app is always last as it packages up the built files on mac.
+DIRS += [
+    'build',
+    'app',
+]
+

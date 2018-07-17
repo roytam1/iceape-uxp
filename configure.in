@@ -1,0 +1,73 @@
+dnl -*- Mode: Autoconf; tab-width: 2; indent-tabs-mode: nil; -*-
+dnl vi: set tabstop=2 shiftwidth=2 expandtab:
+dnl This Source Code Form is subject to the terms of the Mozilla Public
+dnl License, v. 2.0. If a copy of the MPL was not distributed with this
+dnl file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+dnl Things we need to carry from confvars.sh
+AC_DEFINE(MOZ_SUITE)
+AC_SUBST(MOZ_SUITE)
+AC_SUBST(MOZ_COMPOSER)
+AC_SUBST(SEAMONKEY_VERSION)
+AC_DEFINE(MOZ_SEPARATE_MANIFEST_FOR_THEME_OVERRIDES)
+AC_SUBST(MOZ_BUNDLED_FONTS)
+
+dnl Optional parts of the build.
+AC_SUBST(MOZ_MORK)
+if test "$MOZ_MORK"; then
+  AC_DEFINE(MOZ_MORK)
+fi
+if test "$OS_ARCH" != "WINNT"; then
+  MOZ_MOVEMAIL=1
+  HAVE_MOVEMAIL=1
+  AC_DEFINE(HAVE_MOVEMAIL)
+fi
+AC_SUBST(MOZ_MOVEMAIL)
+
+dnl Get other versions (for the calendar plugin)
+THUNDERBIRD_VERSION=`cat ${_topsrcdir}/../mail/config/version.txt`
+AC_SUBST(THUNDERBIRD_VERSION)
+
+dnl =========================================================
+dnl = Lightning extension
+dnl =========================================================
+MOZ_ARG_ENABLE_BOOL(calendar,
+[  --enable-calendar      Enable building of the Lightning calendar extension],
+    MOZ_CALENDAR=1,
+    MOZ_CALENDAR= )
+AC_SUBST(MOZ_CALENDAR)
+
+MOZ_ARG_ENABLE_BOOL(incomplete-external-linkage,
+[  --enable-incomplete-external-linkage Changes some comm-central code to be built with external linkage. Developer only option, incomplete broken builds will result - There are already existing bugs for this. ],
+    MOZ_INCOMPLETE_EXTERNAL_LINKAGE=1,
+    MOZ_INCOMPLETE_EXTERNAL_LINKAGE= )
+
+AC_SUBST(MOZ_INCOMPLETE_EXTERNAL_LINKAGE)
+
+dnl =========================================================
+dnl = LDAP
+dnl =========================================================
+MOZ_ARG_DISABLE_BOOL(ldap,
+[  --disable-ldap          Disable LDAP support],
+    MOZ_LDAP_XPCOM=,
+    MOZ_LDAP_XPCOM=1)
+
+AC_SUBST(MOZ_LDAP_XPCOM)
+
+dnl =========================================================
+dnl = MAPI support (Windows only)
+dnl =========================================================
+
+if test "$_WIN32_MSVC"; then
+    MOZ_MAPI_SUPPORT=1
+fi
+
+MOZ_ARG_DISABLE_BOOL(mapi,
+[  --disable-mapi          Disable MAPI support],
+    MOZ_MAPI_SUPPORT= )
+
+AC_SUBST(MOZ_MAPI_SUPPORT)
+
+if test -n "$MOZ_MAPI_SUPPORT"; then
+    AC_DEFINE(MOZ_MAPI_SUPPORT)
+fi

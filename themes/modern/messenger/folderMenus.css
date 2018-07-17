@@ -1,0 +1,116 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* ===== folderMenus.css ================================================
+  == Icons for menus which represent mail folder.
+  ======================================================================= */
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* ::::: folder icons for menus ::::: */
+
+.folderMenuItem {
+  list-style-image: url("chrome://messenger/skin/icons/folder-closed.gif");
+}
+
+.folderMenuItem[open="true"] {
+  list-style-image: url("chrome://messenger/skin/icons/folder-open.gif");
+}
+
+.folderMenuItem[ServerType="rss"],
+.folderMenuItem[ServerType="nntp"] {
+  list-style-image: url("chrome://messenger/skin/icons/folder-newsgroup.gif");
+}
+
+/* ..... special folders ..... */
+
+.folderMenuItem[SpecialFolder="Inbox"] {
+  list-style-image: url("chrome://messenger/skin/icons/folder-inbox.gif");
+}
+
+.folderMenuItem[SpecialFolder="Inbox"][open="true"] {
+  list-style-image: url("chrome://messenger/skin/icons/folder-inbox-open.gif");
+}
+
+.folderMenuItem[SpecialFolder="Sent"] {
+  list-style-image: url("chrome://messenger/skin/icons/folder-sent.gif");
+}
+
+.folderMenuItem[SpecialFolder="Sent"][open="true"] {
+  list-style-image: url("chrome://messenger/skin/icons/folder-sent-open.gif");
+}
+
+.folderMenuItem[SpecialFolder="Drafts"] {
+  list-style-image: url("chrome://messenger/skin/icons/folder-draft.gif");
+}
+
+.folderMenuItem[SpecialFolder="Drafts"][open="true"] {
+  list-style-image: url("chrome://messenger/skin/icons/folder-draft-open.gif");
+}
+
+.folderMenuItem[SpecialFolder="Templates"] {
+  list-style-image: url("chrome://messenger/skin/icons/folder-template.gif");
+}
+
+.folderMenuItem[SpecialFolder="Templates"][open="true"] {
+  list-style-image: url("chrome://messenger/skin/icons/folder-template-open.gif");
+}
+
+.folderMenuItem[SpecialFolder="Outbox"] {
+  list-style-image: url("chrome://messenger/skin/icons/folder-outbox.gif");
+}
+
+.folderMenuItem[SpecialFolder="Outbox"][open="true"] {
+  list-style-image: url("chrome://messenger/skin/icons/folder-outbox-open.gif");
+}
+
+.folderMenuItem[SpecialFolder="Junk"] {
+  list-style-image: url("chrome://messenger/skin/icons/folder-junk.gif");
+}
+
+.folderMenuItem[SpecialFolder="Junk"][open="true"] {
+  list-style-image: url("chrome://messenger/skin/icons/folder-junk-open.gif");
+}
+
+.folderMenuItem[SpecialFolder="Trash"] {
+  list-style-image: url("chrome://messenger/skin/icons/folder-trash.gif");
+}
+
+.folderMenuItem[SpecialFolder="Trash"][open="true"] {
+  list-style-image: url("chrome://messenger/skin/icons/folder-trash-open.gif");
+}
+
+.folderMenuItem[SpecialFolder="Virtual"] {
+  list-style-image: url("chrome://messenger/skin/icons/folder-search.gif");
+}
+
+/* ..... servers ..... */
+
+.folderMenuItem[IsServer="true"] {
+  list-style-image: url("chrome://messenger/skin/icons/server-mail.gif");
+}
+
+.folderMenuItem[IsServer="true"][ServerType="imap"][IsSecure="true"] {
+  list-style-image: url("chrome://messenger/skin/icons/server-remote-lock.gif");
+}
+
+.folderMenuItem[IsServer="true"][ServerType="pop3"][IsSecure="true"] {
+  list-style-image: url("chrome://messenger/skin/icons/server-remote-lock.gif");
+}
+
+.folderMenuItem[IsServer="true"][ServerType="none"] {
+  list-style-image: url("chrome://messenger/skin/icons/server-local.gif");
+}
+
+.folderMenuItem[IsServer="true"][ServerType="nntp"] {
+  list-style-image: url("chrome://messenger/skin/icons/server-news.gif");
+}
+
+.folderMenuItem[IsServer="true"][ServerType="nntp"][IsSecure="true"] {
+  list-style-image: url("chrome://messenger/skin/icons/server-news-lock.gif");
+}
+
+.folderMenuItem[IsServer="true"][ServerType="rss"] {
+  list-style-image: url("chrome://communicator/skin/icons/feedIcon16.png");
+}

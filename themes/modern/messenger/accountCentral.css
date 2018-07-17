@@ -1,0 +1,117 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* ===== accountCentral.css ==========================================
+  == Styles for the Messenger Account Central panel.
+  ======================================================================= */
+
+@import url("chrome://messenger/skin/");
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#acctCentralGrid {
+  background-color: #FFFFFF;
+}
+
+spacer {
+  max-height: .5em;
+}
+
+spacer.big {
+  max-height: 4em;
+}
+
+/* ::::: rows ::::: */
+
+#acctCentralHeaderRow {
+  padding: 10px 0 10px 10px;
+  font-size: 180%;
+  font-weight: bold;
+  color: #000000;
+}
+
+.acctCentralRow {
+  -moz-binding: url("chrome://global/skin/globalBindings.xml#row-iconic");
+  margin-inline-start: 10px;
+  font-size: 125%;
+  color: #000000;
+}
+
+.row-iconic-icon {
+  list-style-image: inherit;
+  margin-inline-end: 10px;
+}
+
+.acctCentralRowTitleBox {
+  background-color: #C7D0D9;
+  font-size: 150%;
+  font-weight: bold;
+  color: #000000;
+}
+
+/* ::::: links ::::: */
+
+.acctCentralLinkText {
+  cursor: pointer;
+  color: #212731;
+  text-decoration: underline;
+}
+
+.acctCentralLinkText:hover {
+  color: #39598E;
+}
+
+.acctCentralLinkText:hover:active {
+  color: #000000;
+}
+
+/* ::::: row icons ::::: */
+
+#ReadMessages {
+  list-style-image: url("chrome://messenger/skin/icons/acct-read.gif");
+}
+
+#ComposeMessage {
+  list-style-image: url("chrome://messenger/skin/icons/acct-compose.gif");
+}
+
+#SubscribeNewsgroups {
+  list-style-image: url("chrome://messenger/skin/icons/acct-subscribe.gif");
+}
+
+#SubscribeImapFolders {
+  list-style-image: url("chrome://messenger/skin/icons/acct-subscribe.gif");
+}
+
+#SubscribeRSS {
+  list-style-image: url("chrome://messenger/skin/icons/acct-subscribe.gif");
+}
+
+#SearchMessages {
+  list-style-image: url("chrome://messenger/skin/icons/acct-search.gif");
+}
+
+#AccountSettings {
+  list-style-image: url("chrome://messenger/skin/icons/acct-prefs.gif");
+}
+
+#CreateAccount {
+  list-style-image: url("chrome://messenger/skin/icons/acct-newaccount.gif");
+}
+
+#CreateFilters {
+  list-style-image: url("chrome://messenger/skin/icons/acct-filters.gif");
+}
+
+#OfflineSettings {
+  list-style-image: url("chrome://messenger/skin/icons/acct-prefs.gif");
+}
+
+#JunkSettingsMail {
+  list-style-image: url("chrome://messenger/skin/icons/acct-filters.gif");
+}
+
+#JunkSettingsNews {
+  list-style-image: url("chrome://messenger/skin/icons/acct-filters.gif");
+}

@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<?xml-stylesheet href="chrome://communicator/skin/" type="text/css"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://debugQA/locale/pref-debug.dtd" >
+
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <prefpane id="debugqa_prefs_general" label="&lHeader;">
+
+    <preferences id="debugqa_preferences">
+      <preference id="xul.debug.box" name="xul.debug.box" type="bool"/>
+      <preference id="browser.dom.window.dump.enabled"
+                  name="browser.dom.window.dump.enabled" type="bool"/>
+      <preference id="javascript.options.strict"
+                  name="javascript.options.strict" type="bool"/>
+      <preference id="javascript.options.showInConsole"
+                  name="javascript.options.showInConsole" type="bool"/>
+      <preference id="print.use_native_print_dialog"
+                  name="print.use_native_print_dialog" type="bool"/>
+      <preference id="print.use_global_printsettings"
+                  name="print.use_global_printsettings" type="bool"/>
+      <preference id="extensions.dss.enabled"
+                  name="extensions.dss.enabled" type="bool"/>
+      <preference id="ui.key.accelKey" name="ui.key.accelKey" type="int"/>
+      <preference id="ui.key.menuAccessKey" name="ui.key.menuAccessKey" type="int"/>
+    </preferences>
+
+    <groupbox align="start">
+      <caption label="&widgetRendering.label;"/>
+      <checkbox id="debugXULBoxes" label="&debugXULBox.label;"
+                preference="xul.debug.box"/>
+    </groupbox>
+
+    <!-- nothing on this page has accesskeys because this is a temporary debug
+         panel and you can damn well click the widgets! -->
+    <groupbox align="start">
+      <caption label="&debugMiscellaneous.label;"/>
+      <checkbox id="browserDOMWindowDumpEnabled" label="&debugEnableDump.label;"
+                preference="browser.dom.window.dump.enabled"/>
+      <checkbox id="javascriptOptionsStrict" label="&debugStrictJavascript.label;"
+                preference="javascript.options.strict"/>
+      <checkbox id="javascriptOptionsShowInConsole"
+                label="&debugConsoleJavascript.label;"
+                preference="javascript.options.showInConsole"/>
+      <checkbox id="nglayoutUseNativePrintDialog" label="&useNativePrintDialog.label;"
+                preference="print.use_native_print_dialog"/>
+      <checkbox id="printUseGlobalPrintSettings" label="&printUseGlobalPrintSettings.label;"
+                preference="print.use_global_printsettings"/>
+      <checkbox id="dynamicSkinSwitching" label="&dynamicSkinSwitching.label;"
+                preference="extensions.dss.enabled"/>
+    </groupbox>
+
+
+    <groupbox>
+      <caption label="&accelerators.label;"/>
+      <description value="&acceleratorsBlurb.label;"/>
+      <hbox align="center">
+            <label value="&acceleratorKey.label;" control="acceleratorKeyValue"
+                   accesskey="&acceleratorKey.accesskey;"/>
+            <textbox id="acceleratorKeyValue"
+              preference="ui.key.accelKey" size="5"/>
+            <label value="&menuAccessKey.label;" accesskey="&menuAccessKey.accesskey;" control="menuAccessKeyValue"/>
+            <textbox id="menuAccessKeyValue"
+              preference="ui.key.menuAccessKey" size="5"/>
+      </hbox>
+    </groupbox>
+  </prefpane>
+</overlay>

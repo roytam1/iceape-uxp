@@ -1,0 +1,25 @@
+. "$topsrcdir/build/mozconfig.common"
+. "$topsrcdir/suite/config/mozconfigs/mozconfig.win.common"
+
+ac_add_options --with-l10n-base=../../l10n
+ac_add_options --enable-application=suite
+ac_add_options --enable-update-channel=${MOZ_UPDATE_CHANNEL}
+ac_add_options --enable-jemalloc
+ac_add_options --enable-require-all-d3dc-versions
+ac_add_options --enable-calendar
+
+# Needed to enable breakpad in application.ini
+export MOZILLA_OFFICIAL=1
+
+# Disable checking that add-ons are signed by the trusted root
+MOZ_ADDON_SIGNING=0
+# Disable enforcing that add-ons are signed by the trusted root
+MOZ_REQUIRE_SIGNING=0
+
+. $topsrcdir/build/win32/mozconfig.vs-latest
+
+# Set up mapi includes (must be done after visual studio setup)
+export INCLUDE=$INCLUDE:/c/Office\ 2010\ Developer\ Resources/Outlook\ 2010\ MAPI\ Headers
+mk_export_correct_style INCLUDE
+
+. "$topsrcdir/build/mozconfig.rust"
