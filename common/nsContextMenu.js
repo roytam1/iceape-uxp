@@ -1088,7 +1088,7 @@ nsContextMenu.prototype = {
     var channel = ios.newChannel2(linkURL, null, null, null,
                                   Services.scriptSecurityManager.getSystemPrincipal(),
                                   null,
-                                  Components.interfaces.nsILoadInfo.SEC_NORMAL,
+                                  Components.interfaces.nsILoadInfo.SEC_ALLOW_CROSS_ORIGIN_DATA_IS_NULL,
                                   Components.interfaces.nsIContentPolicy.TYPE_OTHER);
     channel.notificationCallbacks = new Callbacks();
 
@@ -1116,7 +1116,7 @@ nsContextMenu.prototype = {
     var timer = setTimeout(timerCallback, timeToWait);
 
     // kick off the channel with our proxy object as the listener
-    channel.asyncOpen(new SaveAsListener(), null);
+    channel.asyncOpen2(new SaveAsListener());
   },
 
   // Save URL of clicked-on image, video, or audio.
