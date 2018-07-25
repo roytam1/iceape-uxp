@@ -4,15 +4,15 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 DIRS += [
-    'console',
+#    'console',
     'public',
     'src',
 ]
 
-EXTRA_COMPONENTS += [
-    'places/nsPlacesAutoComplete.js',
-    'places/nsPlacesAutoComplete.manifest',
-]
+#EXTRA_COMPONENTS += [
+#    'places/nsPlacesAutoComplete.js',
+#    'places/nsPlacesAutoComplete.manifest',
+#]
 
 BROWSER_CHROME_MANIFESTS += [
     'dataman/tests/browser.ini',
