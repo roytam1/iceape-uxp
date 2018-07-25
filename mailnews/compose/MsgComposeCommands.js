@@ -2665,7 +2665,7 @@ function OpenSelectedAttachment()
                                                      null,
                                                      Services.scriptSecurityManager.getSystemPrincipal(),
                                                      null,
-                                                     Components.interfaces.nsILoadInfo.SEC_NORMAL,
+                                                     Components.interfaces.nsILoadInfo.SEC_ALLOW_CROSS_ORIGIN_DATA_IS_NULL,
                                                      Components.interfaces.nsIContentPolicy.TYPE_OTHER);
         if (channel) {
           let uriLoader = Components.classes["@mozilla.org/uriloader;1"].getService(Components.interfaces.nsIURILoader);
@@ -3667,7 +3667,7 @@ function loadBlockedImage(aURL, aReturnDataURL = false) {
       null,
       Services.scriptSecurityManager.getSystemPrincipal(),
       null,
-      Components.interfaces.nsILoadInfo.SEC_NORMAL,
+      Components.interfaces.nsILoadInfo.SEC_ALLOW_CROSS_ORIGIN_DATA_IS_NULL,
       Components.interfaces.nsIContentPolicy.TYPE_OTHER);
 
   let inputStream = channel.open();
