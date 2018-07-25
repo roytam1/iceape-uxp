@@ -202,6 +202,10 @@ var gWebDeveloper = {
     //toggleCmd("Tools:BrowserContentToolbox", remoteEnabled && win.gMultiProcessBrowser);
     toggleCmd("Tools:BrowserContentToolbox", false);
 
+    // Enable Error Console?
+    var consoleEnabled = Services.prefs.getBoolPref("devtools.errorconsole.enabled");
+    toggleCmd("Tools:ErrorConsole", consoleEnabled);
+
     // Enable DevTools connection screen, if the preference allows this.
     toggleCmd("Tools:DevToolsConnect", devtoolsRemoteEnabled);
   },
