@@ -31,9 +31,6 @@
 #endif
 #define XRE_WANT_ENVIRON
 #define strcasecmp _stricmp
-#ifdef MOZ_SANDBOX
-#include "mozilla/sandboxing/SandboxInitialization.h"
-#endif
 #endif
 #include "BinaryPath.h"
 
@@ -187,13 +184,7 @@ static int do_main(int argc, char* argv[], char* envp[], nsIFile *xreDirectory)
       argv[i] = argv[i + 1];
     }
 
-    XREShellData shellData;
-#if defined(XP_WIN) && defined(MOZ_SANDBOX)
-    shellData.sandboxBrokerServices =
-      sandboxing::GetInitializedBrokerServices();
-#endif
-
-    return XRE_XPCShellMain(--argc, argv, envp, &shellData);
+    return XRE_XPCShellMain(--argc, argv, envp);
   }
 
   if (appini) {
@@ -226,18 +217,6 @@ static int do_main(int argc, char* argv[], char* envp[], nsIFile *xreDirectory)
   SetStrongPtr(appData.directory, static_cast<nsIFile*>(greDir.get()));
   // xreDirectory already has a refcount from NS_NewLocalFile
   appData.xreDirectory = xreDirectory;
-
-#if defined(XP_WIN) && defined(MOZ_SANDBOX)
-  sandbox::BrokerServices* brokerServices =
-    sandboxing::GetInitializedBrokerServices();
-#if defined(MOZ_CONTENT_SANDBOX)
-  if (!brokerServices) {
-    Output("Couldn't initialize the broker services.\n");
-    return 255;
-  }
-#endif
-  appData.sandboxBrokerServices = brokerServices;
-#endif
 
   return XRE_main(argc, argv, &appData, mainFlags);
 }
@@ -334,14 +313,6 @@ int main(int argc, char* argv[], char* envp[])
   // We are launching as a content process, delegate to the appropriate
   // main
   if (argc > 1 && IsArg(argv[1], "contentproc")) {
-#if defined(XP_WIN) && defined(MOZ_SANDBOX)
-    // We need to initialize the sandbox TargetServices before InitXPCOMGlue
-    // because we might need the sandbox broker to give access to some files.
-    if (IsSandboxedProcess() && !sandboxing::GetInitializedTargetServices()) {
-      Output("Failed to initialize the sandbox target services.");
-      return 255;
-    }
-#endif
 
     nsresult rv = InitXPCOMGlue(argv[0], nullptr);
     if (NS_FAILED(rv)) {
