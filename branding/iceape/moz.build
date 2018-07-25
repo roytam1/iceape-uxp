@@ -54,7 +54,7 @@ if CONFIG['MOZ_WIDGET_TOOLKIT'] in ('windows', 'gtk2', 'gtk3'):
 
     if icon_dir == 'gtk':
         FINAL_TARGET_FILES.chrome.icons.default += [
-            'icons/gtk/seamonkey.png'
+            'icons/gtk/iceape.png'
         ]
 
         desktop_icons += [
