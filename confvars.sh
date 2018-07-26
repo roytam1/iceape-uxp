@@ -17,9 +17,9 @@ MOZ_UPDATER=1
 # This should usually be the same as the value MAR_CHANNEL_ID.
 # If more than one ID is needed, then you should use a comma separated list
 # of values.
-ACCEPTED_MAR_CHANNEL_IDS=seamonkey-comm-central
+ACCEPTED_MAR_CHANNEL_IDS=iceape-comm-central
 # The MAR_CHANNEL_ID must not contain the following 3 characters: ",\t "
-MAR_CHANNEL_ID=seamonkey-comm-central
+MAR_CHANNEL_ID=iceape-comm-central
 MOZ_MORK=1
 MOZ_SERVICES_FXACCOUNTS=1
 MOZ_STATIC_BUILD_UNSUPPORTED=1
