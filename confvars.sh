@@ -31,19 +31,18 @@ MOZ_RUST_URLPARSE=
 MOZ_DOMINSPECTOR=
 
 # For Iceape-UXP we want to use 52.9.YYYYMMDD as MOZ_APP_VERSION in release
-# builds so add-on developers have something to target while maintaining
-# Seamonkey compatibility.
-# To enable add "export ICEAPE_VERSION=1" to the .mozconfig file.
+# builds.
+# To enable add "export ICEAPEUXP_VERSION=1" to the .mozconfig file.
 # However, this will cause a full rebuild at 00:00 UTC every day so
 # don't export the variable if you are in development or don't care.
 # When not exported we fall back the value in the version*.txt file.
-if test -n "$ICEAPE_VERSION" ; then
+if test -n "$ICEAPEUXP_VERSION" ; then
     MOZ_APP_VERSION=52.9.`date --utc '+%Y%m%d'`
-    SEAMONKEY_VERSION=$MOZ_APP_VERSION
+    ICEAPEUXP_VERSION=$MOZ_APP_VERSION
 else
     MOZ_APP_VERSION_TXT=${_topsrcdir}/$MOZ_BUILD_APP/config/version.txt
     MOZ_APP_VERSION=`cat $MOZ_APP_VERSION_TXT`
-    SEAMONKEY_VERSION=$MOZ_APP_VERSION
+    ICEAPEUXP_VERSION=$MOZ_APP_VERSION
 fi
 
 MOZ_UA_BUILDID=20100101
