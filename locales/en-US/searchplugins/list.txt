@@ -1,4 +1,8 @@
-duckduckgo
-google
-wikipedia
-yahoo
+goblinrefuge
+hyperbola-packages
+internet-archive
+quitter-is
+searx-tor
+searx
+wikipedia-en
+yacy

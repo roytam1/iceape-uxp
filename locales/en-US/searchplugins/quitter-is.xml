@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+ <ShortName>Quitter.is Notice Search</ShortName>
+ <Contact>social@quitter.is</Contact>
+ <Url type="text/html" method="get" template="https://quitter.is/search/notice?q={searchTerms}"></Url>
+ <Image height="16" width="16" type="image/png">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH4gUbFCQcJmb5ggAAAYVJREFUOMuNkUGnMmEYhl85w4wxjFZDFIeI1vMDMpt+TLRpNZtWNWrXKopJJlq1KmbRpjb9gKIfkFSkRYsRUde3+L5Gnd6O7+Lh4fZc780rAM7nM5VKhXQ6TS6Xw/d9brcbD8bjMbZtY9s20+mU+/0eZwKgXC5jmibz+Zzj8Ui/36fVanE4HAiCgG63y2azwfd9EokEy+XyVZBMJimVSgAEQYAQAiEEpmnG+2g0AiCfzzOZTF4FmUwGx3Fot9soihIfPY9hGPR6PVRVfRd4nic9kk02m2W3270KoiiiWq2i67r0SNM0DMNA13VWqxXPiMeyXq9RVVUqUFWVRqPBcDjkJ7EgDEM6nQ7NZlMqKRaLyIgFj7+9XC6kUqk3ged5vwueCcMQTdPi4+/vb6Io+n/B9XqlUCgghEBRFGazGZ/4Ev+o1+vimcFgIBzHEdvtVpim+Za7rvt3eZhqtdqbfb/fs1gsOJ1O0vylwc8mrusKy7KEZVlC1vLXBp9ek+VfstdlfMr+AEQxYgYfDFYKAAAAAElFTkSuQmCC</Image>
+ <AdultContent>false</AdultContent>
+ <Language>en</Language>
+ <OutputEncoding>UTF-8</OutputEncoding>
+ <InputEncoding>UTF-8</InputEncoding>
+</OpenSearchDescription>
