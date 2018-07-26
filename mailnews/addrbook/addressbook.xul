@@ -74,7 +74,6 @@
     <command id="cmd_newcard" oncommand="AbNewCard();"/>
     <command id="cmd_newlist" oncommand="AbNewList();"/>
     <command id="cmd_newMessage" oncommand="AbNewMessage();"/>
-    <command id="cmd_newim" oncommand="AbIMSelected()"/>
     <command id="cmd_printSetup" oncommand="PrintUtils.showPageSetup()"/>
     <command id="cmd_printCard" oncommand="AbPrintCard()"/>
     <command id="cmd_printPreviewCard" oncommand="AbPrintPreviewCard()"/>
@@ -464,12 +463,6 @@
                    tooltiptext="&newmsgButton.tooltip;"
                    removable="true"
                    oncommand="AbNewMessage();"/>
-    <toolbarbutton id="button-newim"
-                   class="toolbarbutton-1"
-                   label="&newIM.label;"
-                   tooltiptext="&newIM.tooltip;"
-                   removable="true"
-                   oncommand="AbIMSelected();"/>
     <toolbarbutton id="button-abdelete"
                    class="toolbarbutton-1"
                    label="&deleteItemButton.label;"
