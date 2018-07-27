@@ -22,14 +22,14 @@ Do Not Edit! -->
 <DL><p>
     <DT><H3 PERSONAL_TOOLBAR_FOLDER="true" ID="NC:PersonalToolbarFolder">@personal_toolbarfolder@</H3>
     <DL><p>
-        <DT><A HREF="https://www.hyperbola.info/"> ICON="@hyperbola_icon@">Hyperbola Project</A>
+        <DT><A HREF="https://www.hyperbola.info/" ICON="@hyperbola_icon@">Hyperbola Project</A>
     </DL><p>
     <DT><H3>Free Software Foundation</H3>
     <DL><p>
-        <DT><A HREF="https://www.fsf.org/">ICON="@fsf_icon@">Free Software Foundation</A>
-        <DT><A HREF="https://www.gnu.org/">ICON="@gnu_icon@">The GNU Operating System and the Free Software Movement</A>
-        <DT><A HREF="https://libreplanet.org/">ICON="@libreplanet_icon@">LibrePlanet</A>
-        <DT><A HREF="https://www.h-node.org/">ICON="@hnode_icon@">h-node</A>
+        <DT><A HREF="https://www.fsf.org/" ICON="@fsf_icon@">Free Software Foundation</A>
+        <DT><A HREF="https://www.gnu.org/" ICON="@gnu_icon@">The GNU Operating System and the Free Software Movement</A>
+        <DT><A HREF="https://libreplanet.org/" ICON="@libreplanet_icon@">LibrePlanet</A>
+        <DT><A HREF="https://www.h-node.org/" ICON="@hnode_icon@">h-node</A>
     </DL><p>
 #include bookmarks.extra
     <HR>
