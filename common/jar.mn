@@ -44,6 +44,7 @@ comm.jar:
 % overlay chrome://messenger-smime/content/msgReadSecurityInfo.xul chrome://communicator/content/helpMessengerOverlay.xul
 % content communicator-platform %content/communicator-platform/ platform
 % content communicator-region %content/communicator-region/
+   content/communicator/about.css                                   (../themes/modern/global/about.css)
    content/communicator/about.js
    content/communicator/about.xhtml
    content/communicator/aboutLife.xhtml
@@ -272,3 +273,6 @@ comm.jar:
    content/communicator/sync/syncQuota.js                           (sync/syncQuota.js)
    content/communicator/sync/syncUtils.js                           (sync/syncUtils.js)
    content/communicator/sync/syncUI.js                              (sync/syncUI.js)
+
+# Iceape-UXP specific branding override
+% override chrome://global/skin/about.css chrome://communicator/content/about.css
