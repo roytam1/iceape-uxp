@@ -17,7 +17,7 @@
         with minimum and maximum supported versions. -->
     <em:targetApplication>
       <Description>
-        <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
+        <em:id>{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}</em:id>
         <em:minVersion>@ICEAPEUXP_VERSION@</em:minVersion>
         <em:maxVersion>@ICEAPEUXP_VERSION@</em:maxVersion>
       </Description>
