@@ -21,7 +21,7 @@
 
     <em:targetApplication>
       <Description>
-        <em:id>{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}</em:id>
+        <em:id>{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}</em:id>
         <em:minVersion>@MOZ_APP_VERSION@</em:minVersion>
         <em:maxVersion>@MOZ_APP_MAXVERSION@</em:maxVersion>
       </Description>

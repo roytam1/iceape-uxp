@@ -302,7 +302,7 @@
     <emItem blockID="i952" id="foxyproxy-basic@eric.h.jung">
       <prefs/>
       <versionRange minVersion="0" maxVersion="3.5.5" severity="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.35"/>
         </targetApplication>
       </versionRange>
@@ -363,7 +363,7 @@
     <emItem blockID="i950" id="foxyproxy@eric.h.jung">
       <prefs/>
       <versionRange minVersion="0" maxVersion="4.5.5" severity="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.35"/>
         </targetApplication>
       </versionRange>
@@ -1857,7 +1857,7 @@
     <pluginItem blockID="p416">
       <match exp="JavaAppletPlugin\.plugin" name="filename"/>
       <versionRange maxVersion="Java 6 Update 45" minVersion="Java 6 Update 42" severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14"/>
         </targetApplication>
       </versionRange>
@@ -1866,7 +1866,7 @@
       <match exp="Java\(TM\) Plug-in 1\.7\.0(_0?([0-9]|(1[0-1]))?)?([^\d\._]|$)" name="name"/>
       <match exp="libnpjp2\.so" name="filename"/>
       <versionRange severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14"/>
         </targetApplication>
       </versionRange>
@@ -1912,7 +1912,7 @@
       <match exp="JavaAppletPlugin\.plugin" name="filename"/>
       <infoURL>https://java.com/</infoURL>
       <versionRange maxVersion="Java 7 Update 10" minVersion="Java 7 Update 0" severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14"/>
         </targetApplication>
       </versionRange>
@@ -1941,7 +1941,7 @@
       <match exp="Java\(TM\) Platform SE 7 U[5-6](\s[^\d\._U]|$)" name="name"/>
       <match exp="npjp2\.dll" name="filename"/>
       <versionRange severity="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="2.14.*" minVersion="0.1"/>
         </targetApplication>
       </versionRange>
@@ -1983,7 +1983,7 @@
       <match exp="Flash\ Player\.plugin" name="filename"/>
       <infoURL>https://get.adobe.com/flashplayer/</infoURL>
       <versionRange maxVersion="10.2.159.1" minVersion="0" severity="0">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="2.13.*" minVersion="0"/>
         </targetApplication>
       </versionRange>
@@ -2026,7 +2026,7 @@
       <match exp="Java\(TM\) Platform SE 7 U([0-9]|(1[0-1]))(\s[^\d\._U]|$)" name="name"/>
       <match exp="npjp2\.dll" name="filename"/>
       <versionRange severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14"/>
         </targetApplication>
       </versionRange>
@@ -2036,7 +2036,7 @@
       <match exp="^Shockwave Flash 11.(0|1) r[0-9]{1,3}$" name="description"/>
       <infoURL>https://get.adobe.com/flashplayer/</infoURL>
       <versionRange severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.16a1"/>
         </targetApplication>
       </versionRange>
@@ -2050,7 +2050,7 @@
       <match exp="(NPSWF32\.dll)|(Flash\ Player\.plugin)" name="filename"/>
       <infoURL>https://get.adobe.com/flashplayer/</infoURL>
       <versionRange maxVersion="10.3.183.18.999" minVersion="10.3" severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.16a1"/>
         </targetApplication>
       </versionRange>
@@ -2067,7 +2067,7 @@
     <pluginItem blockID="p123">
       <match exp="JavaPlugin2_NPAPI\.plugin" name="filename"/>
       <versionRange maxVersion="14.2.0" minVersion="0" severity="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="2.14.*" minVersion="0.1"/>
         </targetApplication>
       </versionRange>
@@ -2112,7 +2112,7 @@
       <match exp="Java\(TM\) Platform SE 7 U7(\s[^\d\._U]|$)" name="name"/>
       <match exp="npjp2\.dll" name="filename"/>
       <versionRange severity="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="2.14.*" minVersion="0.1"/>
         </targetApplication>
       </versionRange>
@@ -2121,7 +2121,7 @@
       <match exp="Java\(TM\) Plug-in 1\.7\.0(_0?([5-6]))?([^\d\._]|$)" name="name"/>
       <match exp="libnpjp2\.so" name="filename"/>
       <versionRange severity="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="2.14.*" minVersion="0.1"/>
         </targetApplication>
       </versionRange>
@@ -2130,7 +2130,7 @@
       <match exp="Java\(TM\) Platform SE 7 U(1[6-9]|2[0-4])(\s[^\d\._U]|$)" name="name"/>
       <match exp="npjp2\.dll" name="filename"/>
       <versionRange severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14"/>
         </targetApplication>
       </versionRange>
@@ -2143,7 +2143,7 @@
     <pluginItem blockID="p459">
       <match exp="JavaAppletPlugin\.plugin" name="filename"/>
       <versionRange maxVersion="Java 7 Update 44" minVersion="Java 7 Update 25" severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14"/>
         </targetApplication>
       </versionRange>
@@ -2152,7 +2152,7 @@
       <match exp="Java\(TM\) Plug-in 1\.7\.0_1[2-5]([^\d\._]|$)" name="name"/>
       <match exp="libnpjp2\.so" name="filename"/>
       <versionRange severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14"/>
         </targetApplication>
       </versionRange>
@@ -2161,7 +2161,7 @@
       <match exp="Java(\(TM\))? Plug-in ((1\.7\.0_(2[5-9]|3\d|4[0-4]))|(10\.4[0-4](\.[0-9]+)?))([^\d\._]|$)" name="name"/>
       <match exp="libnpjp2\.so" name="filename"/>
       <versionRange severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14"/>
         </targetApplication>
       </versionRange>
@@ -2179,7 +2179,7 @@
     <pluginItem blockID="p138">
       <match exp="JavaAppletPlugin\.plugin" name="filename"/>
       <versionRange maxVersion="Java 7 Update 06" minVersion="Java 7 Update 01" severity="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="2.14.*" minVersion="0.1"/>
         </targetApplication>
       </versionRange>
@@ -2187,7 +2187,7 @@
     <pluginItem blockID="p212">
       <match exp="JavaAppletPlugin\.plugin" name="filename"/>
       <versionRange maxVersion="Java 7 Update 07" minVersion="Java 7 Update 07" severity="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="2.14.*" minVersion="0.1"/>
         </targetApplication>
       </versionRange>
@@ -2200,7 +2200,7 @@
     <pluginItem blockID="p188">
       <match exp="JavaAppletPlugin\.plugin" name="filename"/>
       <versionRange maxVersion="Java 6 Update 38" minVersion="Java 6 Update 0" severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14"/>
         </targetApplication>
       </versionRange>
@@ -2243,7 +2243,7 @@
     <pluginItem blockID="p422">
       <match exp="JavaAppletPlugin\.plugin" name="filename"/>
       <versionRange maxVersion="Java 7 Update 24" minVersion="Java 7 Update 16" severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14"/>
         </targetApplication>
       </versionRange>
@@ -2268,7 +2268,7 @@
       <match exp="Java\(TM\) Platform SE ((6( U(\d|([0-2]\d)|3[0-2]))?)|(7(\sU[0-4])?))(\s[^\d\._U]|$)" name="name"/>
       <match exp="npjp2\.dll" name="filename"/>
       <versionRange severity="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="2.14.*" minVersion="0.1"/>
         </targetApplication>
       </versionRange>
@@ -2312,7 +2312,7 @@
       <match exp="Java\(TM\) Platform SE 6 U3[1-8](\s[^\d\._U]|$)" name="name"/>
       <match exp="npjp2\.dll" name="filename"/>
       <versionRange severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14"/>
         </targetApplication>
       </versionRange>
@@ -2325,7 +2325,7 @@
       <match exp="Java\(TM\) Plug-in 1\.7\.0(_0?7)?([^\d\._]|$)" name="name"/>
       <match exp="libnpjp2\.so" name="filename"/>
       <versionRange severity="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="2.14.*" minVersion="0.1"/>
         </targetApplication>
       </versionRange>
@@ -2335,7 +2335,7 @@
       <match exp="npYState.dll" name="filename"/>
       <match exp="^Yahoo Application State Plugin$" name="description"/>
       <versionRange>
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="1.0.0.5"/>
         </targetApplication>
       </versionRange>
@@ -2344,7 +2344,7 @@
       <match exp="Java\(TM\) Plug-in 1\.6\.0_4[2-5]([^\d\._]|$)" name="name"/>
       <match exp="libnpjp2\.so" name="filename"/>
       <versionRange severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14"/>
         </targetApplication>
       </versionRange>
@@ -2368,7 +2368,7 @@
     <pluginItem blockID="p292">
       <match exp="JavaAppletPlugin\.plugin" name="filename"/>
       <versionRange maxVersion="Java 7 Update 15" minVersion="Java 7 Update 12" severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14"/>
         </targetApplication>
       </versionRange>
@@ -2387,7 +2387,7 @@
       <match exp="Java\(TM\) Plug-in 1\.6\.0_3[1-8]([^\d\._]|$)" name="name"/>
       <match exp="libnpjp2\.so" name="filename"/>
       <versionRange severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14"/>
         </targetApplication>
       </versionRange>
@@ -2426,7 +2426,7 @@
       <match exp="Java\(TM\) Platform SE 7 U1[2-5](\s[^\d\._U]|$)" name="name"/>
       <match exp="npjp2\.dll" name="filename"/>
       <versionRange severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14"/>
         </targetApplication>
       </versionRange>
@@ -2436,7 +2436,7 @@
       <match exp="^Shockwave Flash (([1-9]\.[0-9]+)|(10\.([0-2]|(3 r(([0-9][0-9]?)|1(([0-7][0-9])|8[0-2]))))))( |$)" name="description"/>
       <infoURL>https://get.adobe.com/flashplayer/</infoURL>
       <versionRange severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.16a1"/>
         </targetApplication>
       </versionRange>
@@ -2459,7 +2459,7 @@
       <match exp="(NPSWF32\.dll)|(Flash\ Player\.plugin)" name="filename"/>
       <infoURL>https://get.adobe.com/flashplayer/</infoURL>
       <versionRange maxVersion="10.3.183.66" minVersion="10.3.183.19" severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.16a1"/>
         </targetApplication>
       </versionRange>
@@ -2568,7 +2568,7 @@
       <match exp="Java\(TM\) Plug-in 1\.6\.0_(39|40|41)([^\d\._]|$)" name="name"/>
       <match exp="libnpjp2\.so" name="filename"/>
       <versionRange severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14"/>
         </targetApplication>
       </versionRange>
@@ -2577,7 +2577,7 @@
       <match exp="(NPSWF32\.dll)|(Flash\ Player\.plugin)" name="filename"/>
       <infoURL>https://get.adobe.com/flashplayer/</infoURL>
       <versionRange maxVersion="10.2.9999" minVersion="0" severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14a1"/>
         </targetApplication>
       </versionRange>
@@ -2585,7 +2585,7 @@
     <pluginItem blockID="p298">
       <match exp="JavaAppletPlugin\.plugin" name="filename"/>
       <versionRange maxVersion="Java 6 Update 41" minVersion="Java 6 Update 39" severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14"/>
         </targetApplication>
       </versionRange>
@@ -2594,7 +2594,7 @@
       <match exp="Java\(TM\) Platform SE 7 U(2[5-9]|3\d|4[0-4])(\s[^\d\._U]|$)" name="name"/>
       <match exp="npjp2\.dll" name="filename"/>
       <versionRange severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14"/>
         </targetApplication>
       </versionRange>
@@ -2603,7 +2603,7 @@
       <match exp="Java\(TM\) Plug-in 1\.(6\.0_(\d|[0-2]\d?|3[0-2])|7\.0(_0?([1-4]))?)([^\d\._]|$)" name="name"/>
       <match exp="libnpjp2\.so" name="filename"/>
       <versionRange severity="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="2.14.*" minVersion="0.1"/>
         </targetApplication>
       </versionRange>
@@ -2633,7 +2633,7 @@
       <match exp="Java\(TM\) Platform SE 6 U(39|40|41)(\s[^\d\._U]|$)" name="name"/>
       <match exp="npjp2\.dll" name="filename"/>
       <versionRange severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14"/>
         </targetApplication>
       </versionRange>
@@ -2670,7 +2670,7 @@
     <pluginItem blockID="p328">
       <match exp="Silverlight\.plugin" name="filename"/>
       <versionRange maxVersion="5.1.20124.9999" minVersion="5.1" severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.16a1"/>
         </targetApplication>
       </versionRange>
@@ -2684,7 +2684,7 @@
       <match exp="Java\(TM\) Platform SE 6 U4[2-5](\s[^\d\._U]|$)" name="name"/>
       <match exp="npjp2\.dll" name="filename"/>
       <versionRange severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14"/>
         </targetApplication>
       </versionRange>
@@ -2693,7 +2693,7 @@
       <match exp="(NPSWF[0-9_]*\.dll)|(Flash\ Player\.plugin)" name="filename"/>
       <infoURL>https://get.adobe.com/flashplayer/</infoURL>
       <versionRange maxVersion="11.7.700.169" minVersion="11.0" severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.16a1"/>
         </targetApplication>
       </versionRange>
@@ -2731,7 +2731,7 @@
       <match exp="Java\(TM\) Plug-in 1\.7\.0_(1[6-9]|2[0-4])([^\d\._]|$)" name="name"/>
       <match exp="libnpjp2\.so" name="filename"/>
       <versionRange severity="0" vulnerabilitystatus="1">
-        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb5143a}">
+        <targetApplication id="{9184b6fe-4a5c-484d-8b4b-efbfccbfb514}">
           <versionRange maxVersion="*" minVersion="2.14"/>
         </targetApplication>
       </versionRange>
