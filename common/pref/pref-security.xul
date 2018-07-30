@@ -32,15 +32,6 @@
                   name="geo.enabled"
                   type="bool"/>
 
-      <!-- Safe Browsing -->
-      <preference id="browser.safebrowsing.malware.enabled"
-                  name="browser.safebrowsing.malware.enabled"
-                  type="bool"/>
-      <preference id="browser.safebrowsing.phishing.enabled"
-                  name="browser.safebrowsing.phishing.enabled"
-                  type="bool"/>
-    </preferences>
-
     <!-- User Tracking -->
     <groupbox id="trackingGroup">
       <caption label="&tracking.label;"/>
@@ -77,21 +68,6 @@
                label="&geoDisabled.label;"
                accesskey="&geoDisabled.accesskey;"/>
       </radiogroup>
-    </groupbox>
-
-    <!-- Safe Browsing -->
-    <groupbox id="safeBrowsingGroup">
-      <caption label="&safeBrowsing.label;"/>
-
-      <description>&safeBrowsingIntro.label;</description>
-      <checkbox id="blockAttackSites"
-                label="&blockAttackSites.label;"
-                accesskey="&blockAttackSites.accesskey;"
-                preference="browser.safebrowsing.malware.enabled"/>
-      <checkbox id="blockWebForgeries"
-                label="&blockWebForgeries.label;"
-                accesskey="&blockWebForgeries.accesskey;"
-                preference="browser.safebrowsing.phishing.enabled"/>
     </groupbox>
   </prefpane>
 </overlay>

@@ -56,14 +56,6 @@
 <!ENTITY rights.addons-term3 "Uncheck the options to &quot;&autoAddOnsUpdates.label;&quot; and &quot;&enablePersonalized.label;&quot;">
 <!ENTITY rights.addons-term4 "The Add-on Services are now disabled">
 
-<!-- safe browsing points for branded builds -->
-<!ENTITY rights.safebrowsing-a "Safe Browsing: ">
-<!ENTITY rights.safebrowsing-b "Disabling the Safe Browsing feature is not recommended as it may result in you going to unsafe sites.  If you wish to disable the feature completely, follow these steps:">
-<!ENTITY rights.safebrowsing-term1 "Open the application preferences">
-<!ENTITY rights.safebrowsing-term2 "Select the main &security.label; panel">
-<!ENTITY rights.safebrowsing-term3 "Uncheck the options to &quot;&blockAttackSites.label;&quot; and &quot;&blockWebForgeries.label;&quot;">
-<!ENTITY rights.safebrowsing-term4 "Safe Browsing is now disabled">
-
 <!-- location aware browsing points for branded builds -->
 <!ENTITY rights.locationawarebrowsing-a "Location Aware Browsing: ">
 <!ENTITY rights.locationawarebrowsing-b "is always opt-in.  No location information is ever sent without your permission.  If you wish to disable the feature completely, follow these steps:">

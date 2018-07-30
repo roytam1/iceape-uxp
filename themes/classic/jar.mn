@@ -101,7 +101,6 @@ classic.jar:
 #endif
   skin/classic/communicator/aboutSupport.css                            (communicator/aboutSupport.css)
   skin/classic/communicator/brand.css                                   (communicator/brand.css)
-  skin/classic/communicator/blockedSite.css                             (communicator/blockedSite.css)
   skin/classic/communicator/certError.css                               (communicator/certError.css)
   skin/classic/communicator/common.css                                  (communicator/common.css)
   skin/classic/communicator/dialogs.css                                 (communicator/dialogs.css)

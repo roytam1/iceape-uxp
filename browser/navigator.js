@@ -16,9 +16,6 @@ this.__defineSetter__("PluralForm", function (val) {
   return this.PluralForm = val;
 });
 
-XPCOMUtils.defineLazyModuleGetter(this, "SafeBrowsing",
-  "resource://gre/modules/SafeBrowsing.jsm");
-
 const REMOTESERVICE_CONTRACTID = "@mozilla.org/toolkit/remote-service;1";
 const XUL_NS = "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
 var gURLBar = null;
@@ -711,9 +708,6 @@ var gBrowserInit = {
 
 function DelayedStartup() {
   window.removeEventListener("MozAfterPaint", DelayedStartup);
-
-  // Bug 778855 - Perf regression if we do this here. To be addressed in bug 779008.
-  setTimeout(function() { SafeBrowsing.init(); }, 2000);
 
   gBrowserInit.delayedStartupFinished = true;
   Services.obs.notifyObservers(window, "browser-delayed-startup-finished", "");

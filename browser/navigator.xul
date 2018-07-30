@@ -12,7 +12,6 @@
 <?xul-overlay href="chrome://navigator/content/linkToolbarOverlay.xul"?>
 <?xul-overlay href="chrome://communicator/content/contentAreaContextOverlay.xul"?>
 <?xul-overlay href="chrome://communicator/content/sidebar/sidebarOverlay.xul"?>
-<?xul-overlay href="chrome://navigator/content/safeBrowsingOverlay.xul"?>
 <?xul-overlay href="chrome://navigator/content/webDeveloperOverlay.xul"?>
 
 <!DOCTYPE window [
