@@ -61,9 +61,8 @@ Object.defineProperty(this, "Eyedropper", {
 
 Object.defineProperty(this, "HUDService", {
   get() {
-    var tmp = {};
-    Components.utils.import("resource://devtools/shared/Loader.jsm", tmp);
-    return tmp.require("devtools/client/webconsole/hudservice");
+    var devtools = Components.utils.import("resource://devtools/shared/Loader.jsm", {}).devtools;
+    devtools.require("devtools/client/webconsole/hudservice").HUDService.openBrowserConsoleOrFocus();
   },
   configurable: true,
   enumerable: true
