@@ -831,6 +831,10 @@ function IsSendUnsentMsgsEnabled(folderResource)
   if (msgSendLater.sendingMessages)
     return false;
 
+  // If no account has been configured, there are no messages for sending.
+  if (MailServices.accounts.accounts.length == 0)
+    return false;
+
   if (folderResource &&
       folderResource instanceof Components.interfaces.nsIMsgFolder) {
     // If unsentMsgsFolder is non-null, it is the "Outbox" folder.
