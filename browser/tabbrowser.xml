@@ -458,7 +458,7 @@
             mRequestCount: 0,
 
             _callProgressListeners: function () {
-              Array.unshift(arguments, this.mBrowser);
+              Array.prototype.unshift.call(arguments, this.mBrowser);
               return this.mTabBrowser._callProgressListeners.apply(this.mTabBrowser, arguments);
             },
 
@@ -2258,7 +2258,7 @@
         <getter>
           <![CDATA[
             return this._browsers ||
-                   (this._browsers = Array.map(this.tabs, tab => tab.linkedBrowser));
+                   (this._browsers = Array.from(this.tabs, tab => tab.linkedBrowser));
           ]]>
         </getter>
       </property>
@@ -3206,8 +3206,8 @@
       <method name="_getScrollableElements">
         <body>
           <![CDATA[
-            return Array.filter(document.getBindingParent(this).childNodes,
-                                this._canScrollToElement,
+            return Array.from(document.getBindingParent(this).childNodes)
+                        .filter(this._canScrollToElement,
                                 this);
           ]]>
         </body>
