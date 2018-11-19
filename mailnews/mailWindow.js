@@ -66,6 +66,7 @@ function OnMailWindowUnload()
  * that the images can be accessed in a paste elsewhere.
  */
 function onCopyOrDragStart(e) {
+  let browser = getBrowser();
   if (!browser) {
     return;
   }
