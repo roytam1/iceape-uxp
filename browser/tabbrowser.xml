@@ -299,14 +299,14 @@
            sizing is happening too early when we want to stop showing the
            preview.  This clears the label's width early (i.e. when the
            previous preview disappears) so that when the next tooltip appears,
-           it doesn't start with a bad size.  For now, I blame Gecko. -->
+           it doesn't start with a bad size. For now, I blame Gecko. -->
       <method name="resetPreview">
         <parameter name="aPopup"/>
         <body>
         <![CDATA[
           var label = aPopup.firstChild;
-          // if this function is removed, these two lines need to be restored
-          // to the non-preview codepath above
+          // If this function is removed, these two lines need to be restored
+          // to the non-preview codepath above.
           label.removeAttribute("width");
           aPopup.removeAttribute("tabpreview");
         ]]>
@@ -345,10 +345,13 @@
         <parameter name="aDocument"/>
         <body>
           <![CDATA[
-            var browsers = this.browsers;
-            for (var i = 0; i < browsers.length; i++)
-              if (browsers[i].contentDocument == aDocument)
-                return i;
+			let browsers = this.browsers;
+			for (let i = 0; i < browsers.length; i++) {
+			if (!browsers[i])
+			  return;
+			else if (browsers[i].contentDocument == aDocument)
+					  return i;
+			}
             return -1;
           ]]>
         </body>
@@ -359,9 +362,10 @@
         <body>
           <![CDATA[
             var browsers = this.browsers;
-            for (var i = 0; i < browsers.length; i++)
+            for (let i = 0; i < browsers.length; i++) {
               if (browsers[i].contentDocument == aDocument)
                 return browsers[i];
+            }
             return null;
           ]]>
         </body>
@@ -2778,6 +2782,11 @@
         <parameter name="aPostData"/>
         <body>
           <![CDATA[
+            // Note - the callee understands both:
+            // (a) loadURIWithFlags(aURI, aFlags, ...)
+            // (b) loadURIWithFlags(aURI, { flags: aFlags, ... })
+            // Forwarding it as (a) here actually supports both (a) and (b),
+            // so you can call us either way too.
             return this.mCurrentBrowser.loadURIWithFlags(aURI, aFlags, aReferrerURI, aCharset, aPostData);
           ]]>
         </body>
