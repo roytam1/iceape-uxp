@@ -23,6 +23,10 @@ pref("general.skins.selectedSkin", "classic/1.0");
 pref("browser.chromeURL","chrome://navigator/content/navigator.xul");
 pref("browser.hiddenWindowChromeURL", "chrome://navigator/content/hiddenWindow.xul");
 
+// Enable opportunistic encryption by default
+pref("network.http.altsvc.oe", true);
+pref("network.http.upgrade-insecure-requests", true);
+
 // prompt for Master Password on startup
 pref("signon.startup.prompt",               true);
 
