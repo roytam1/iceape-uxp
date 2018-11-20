@@ -588,7 +588,8 @@ var gThreePaneIncomingServerListener = {
       var selectedFolders = GetSelectedMsgFolders();
       for (var i = 0; i < selectedFolders.length; i++) {
         if (ServerContainsFolder(server, selectedFolders[i])) {
-          SelectServer(accountManager.defaultAccount.incomingServer);
+          if (accountManager.defaultAccount)
+            SelectServer(accountManager.defaultAccount.incomingServer);
           // we've made a new selection, we're done
           return;
         }
@@ -876,12 +877,12 @@ function loadStartFolder(initialUri)
     var isLoginAtStartUpEnabled = false;
 
     //First get default account
-    try
+    if (!initialUri)
     {
-        if (!initialUri)
-        {
-            // Startup time.
-            defaultServer = accountManager.defaultAccount.incomingServer;
+        // Startup time.
+        defaultAccount = accountManager.defaultAccount;
+        if (defaultAccount) {
+            defaultServer = defaultAccount.incomingServer;
 
             // set the initialUri to the server, so we select it
             // so we'll get account central
@@ -909,8 +910,14 @@ function loadStartFolder(initialUri)
                 if (inboxFolder)
                   initialUri = inboxFolder.URI;
             }
+        } else {
+            // If no default account then show account central page.
+            ShowAccountCentral();
         }
 
+   }
+
+   if (initialUri) {
         SelectFolder(initialUri);
 
         // Perform biff on the server to check for new mail, if:
@@ -922,11 +929,6 @@ function loadStartFolder(initialUri)
             !defaultServer.isDeferredTo &&
             defaultServer.rootFolder == defaultServer.rootMsgFolder)
           defaultServer.performBiff(msgWindow);
-    }
-    catch(ex)
-    {
-      // If no default account then show account central page.
-      ShowAccountCentral();
     }
 
     MsgGetMessagesForAllServers(defaultServer);
@@ -1460,13 +1462,8 @@ function MigrateJunkMailSettings()
   {
     // Get the default account, check to see if we have values for our
     // globally migrated prefs.
-    var defaultAccount;
-    try {
-      defaultAccount = accountManager.defaultAccount;
-    } catch (ex) {
-      defaultAccount = null;
-    }
-    if (defaultAccount && defaultAccount.incomingServer)
+    var defaultAccount = accountManager.defaultAccount;
+    if (defaultAccount)
     {
       // we only care about
       var prefix = "mail.server." + defaultAccount.incomingServer.key + ".";
