@@ -6,6 +6,10 @@
 XPCOMUtils.defineLazyModuleGetter(this, "BrowserToolboxProcess",
                                   "resource://devtools/client/framework/ToolboxProcess.jsm");
 
+var { require } = Components.utils.import("resource://devtools/shared/Loader.jsm", {});
+var { TargetFactory } = require("devtools/client/framework/target");
+const {CommandUtils} = require("devtools/client/shared/developer-toolbar");
+
 XPCOMUtils.defineLazyGetter(this, "DeveloperToolbar", function() {
   var tmp = {};
   Components.utils.import("resource://devtools/shared/Loader.jsm", tmp);
@@ -44,20 +48,14 @@ XPCOMUtils.defineLazyModuleGetter(this, "gDevToolsBrowser",
                                   "resource://devtools/client/framework/gDevTools.jsm");
 
 function openEyedropper() {
-  var eyedropper = new this.Eyedropper(this, { context: "menu",
-                                               copyOnSelect: true });
-  eyedropper.open();
+	let browserWindow = Services.wm.getMostRecentWindow("navigator:browser");
+	let target = TargetFactory.forTab(browserWindow.gBrowser.selectedTab);
+	CommandUtils.createRequisition(target, {
+	environment: CommandUtils.createEnvironment({target})
+	}).then(requisition => {
+	requisition.updateExec("eyedropper");
+	}, e => console.error(e));
 }
-
-Object.defineProperty(this, "Eyedropper", {
-  get() {
-    var tmp = {};
-    Components.utils.import("resource://devtools/shared/Loader.jsm", tmp);
-    return tmp.require("devtools/client/eyedropper/eyedropper").Eyedropper;
-  },
-  configurable: true,
-  enumerable: true
-});
 
 Object.defineProperty(this, "HUDService", {
   get() {
