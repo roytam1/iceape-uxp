@@ -10,6 +10,15 @@ var gChromeState = null; // chrome state before we went into print preview
 var gInPrintPreviewMode = false;
 var gNavToolbox = null;
 
+// Note: Do not delete! It is used for: common/tasksOverlay.xul (Web Developer Menu)
+XPCOMUtils.defineLazyModuleGetter(this, "gDevTools",
+                                  "resource://devtools/client/framework/gDevTools.jsm");
+XPCOMUtils.defineLazyGetter(this, "BrowserToolboxProcess", function() {
+let tmp = {};
+Cu.import("resource://devtools/client/framework/ToolboxProcess.jsm", tmp);
+return tmp.BrowserToolboxProcess;
+});
+
 function getWebNavigation()
 {
   try {

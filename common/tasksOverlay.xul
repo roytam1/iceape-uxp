@@ -74,13 +74,23 @@
                     oncommand="gSyncUI.doSync(event);"
                     hidden="true"/>
           <menuseparator id="devToolsSeparator"/>
-          <menu label="&webDevelopment.label;" accesskey="&webDevelopment.accesskey;">
-            <menupopup id="toolsPopup">
-              <menuitem id="javascriptConsole" label="&errorConsoleCmd.label;"
+              <menu id="webDeveloperMenu"
+                    label="&webDeveloperMenu.label;"
+                    accesskey="&webDeveloperMenu.accesskey;">
+                <menupopup id="menuWebDeveloperPopup">
+<!--
+                  <menuitem id="menu_pageSource"
+                            observes="devtoolsMenuBroadcaster_PageSource"
+                            accesskey="&pageSourceCmd.accesskey;"/>
+                  <menuitem id="javascriptConsole"
+                            observes="devtoolsMenuBroadcaster_ErrorConsole"
+                            accesskey="&errorConsoleCmd.accesskey;"/>
+-->
+                  <menuitem id="javascriptConsole" label="&errorConsoleCmd.label;"
                         accesskey="&errorConsoleCmd.accesskey;"
                         command="Tasks:ErrorConsole"/>
-            </menupopup>
-          </menu>
+                </menupopup>
+              </menu>
           <menuseparator id="sep_switchprofile"/>
           <menuitem id="cmd_switchprofile" label="&switchProfileCmd.label;" accesskey="&switchProfileCmd.accesskey;" oncommand="toProfileManager();"/>
         </menupopup>

@@ -18,8 +18,8 @@
 <!ENTITY taskNavigator.tooltip  "Browser">
 <!ENTITY taskComposer.tooltip  "Composer">
 
-<!ENTITY webDevelopment.label "Web Development">
-<!ENTITY webDevelopment.accesskey "W">
+<!ENTITY webDeveloperMenu.label       "Web Developer">
+<!ENTITY webDeveloperMenu.accesskey   "W">
 
 <!ENTITY windowMenu.label "Window">
 <!ENTITY windowMenu.accesskey "W">
