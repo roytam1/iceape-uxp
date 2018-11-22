@@ -89,7 +89,12 @@
         </xul:hbox>
         <xul:tabpanels flex="1" class="plain" selectedIndex="0" anonid="panelcontainer">
           <xul:notificationbox class="browser-notificationbox" xbl:inherits="popupnotification">
-            <xul:browser flex="1" type="content-primary" xbl:inherits="tooltip=contenttooltip,contextmenu=contentcontextmenu,autocompletepopup"/>
+            <xul:vbox flex="1" class="browserContainer">
+              <xul:stack flex="1" class="browserStack" anonid="browserStack">
+                <xul:browser flex="1" type="content-primary" primary="true"
+                             xbl:inherits="tooltip=contenttooltip,contextmenu=contentcontextmenu,autocompletepopup"/>
+              </xul:stack>
+            </xul:vbox>
           </xul:notificationbox>
         </xul:tabpanels>
       </xul:tabbox>
@@ -389,7 +394,7 @@
         <parameter name="aBrowser"/>
         <body>
           <![CDATA[
-            return aBrowser ? aBrowser.parentNode : this.mCurrentBrowser.parentNode;
+            return this.getBrowserContainer(aBrowser).parentNode;
           ]]>
         </body>
       </method>
@@ -1131,7 +1136,7 @@
       <method name="updateCurrentBrowser">
         <body>
           <![CDATA[
-            var newBrowser = this.mPanelContainer.selectedPanel.firstChild;
+            var newBrowser = this.mPanelContainer.selectedPanel.firstChild.firstChild.firstChild;
             var oldBrowser = this.mCurrentBrowser;
 
             // Transfer the dropped link handler to the new browser.
@@ -1389,8 +1394,8 @@
             if (evt.target != this.contentDocument)
               return;
 
-            var tabBrowser = this.parentNode.parentNode.parentNode.parentNode;
-            var tab = document.getAnonymousElementByAttribute(tabBrowser, "linkedpanel", this.parentNode.id);
+            var tabBrowser = this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
+            var tab = document.getAnonymousElementByAttribute(tabBrowser, "linkedpanel", this.parentNode.parentNode.parentNode.id);
 
             tabBrowser.setTabTitle(tab);
 
@@ -1585,6 +1590,8 @@
               aOpener               = params.opener;
             }
 
+            const NS_XUL = "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
             this._browsers = null; // invalidate cache
 
             var t = this.referenceTab.cloneNode(true);
@@ -1596,8 +1603,8 @@
 
             this.tabContainer.appendChild(t);
 
-            var b = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul",
-                                             "browser");
+            var b = document.createElementNS(NS_XUL,
+                                              "browser");
             b.setAttribute("type", "content-targetable");
             b.setAttribute("contextmenu", this.getAttribute("contentcontextmenu"));
             b.setAttribute("tooltip", this.getAttribute("contenttooltip"));
@@ -1609,12 +1616,24 @@
              b.presetOpenerWindow(aOpener);
            }
 
+            // Create the browserStack container
+            var stack = document.createElementNS(NS_XUL, "stack");
+            stack.className = "browserStack";
+            stack.appendChild(b);
+            stack.setAttribute("flex", "1");
+
+            // Create the browserContainer
+            var browserContainer = document.createElementNS(NS_XUL, "vbox");
+            browserContainer.className = "browserContainer";
+            browserContainer.appendChild(stack);
+            browserContainer.setAttribute("flex", "1");
+
             // Add the Message and the Browser to the box
-            var n = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul",
+            var n = document.createElementNS(NS_XUL,
                                              "notificationbox");
             n.setAttribute("class", "browser-notificationbox");
             n.setAttribute("popupnotification", this.getAttribute("popupnotification"));
-            n.appendChild(b);
+            n.appendChild(browserContainer);
 
             var uniqueId = "panel" + this.nextTabNumber++;
             n.id = uniqueId;
@@ -1906,7 +1925,7 @@
                 detail: !!aParams.disableUndo }));
             var tabData = aTab.tabData || {};
             tabData.pos = this.getTabIndex(aTab);
-            tabData.panel = oldBrowser.parentNode.id;
+            tabData.panel = oldBrowser.parentNode.parentNode.parentNode.id;
             tabData.title = oldBrowser.contentDocument.title ||
                             this.getTitleForURI(oldBrowser.currentURI) ||
                             this.mStringBundle.getString("tabs.untitled");
@@ -1981,13 +2000,13 @@
               // JS properties set on them, the browser element won't be
               // destroyed until the document goes away.  So we force a
               // cleanup ourselves.
-              oldBrowser.parentNode.destroy();
+              oldBrowser.parentNode.parentNode.parentNode.destroy();
               oldBrowser.destroy();
-              oldBrowser.parentNode.remove();
+              oldBrowser.parentNode.parentNode.parentNode.remove();
 
               // Fix up the selected panel in the case the removed
               // browser was to the left of the current browser
-              this.mTabBox.selectedPanel = this.selectedTab.linkedBrowser.parentNode;
+              this.mTabBox.selectedPanel = this.selectedTab.linkedBrowser.parentNode.parentNode.parentNode;
               return;
             }
 
@@ -2026,13 +2045,13 @@
               tabData = this.savedBrowsers.pop();
               var deadBrowser = tabData.browserData.browser;
               delete tabData.browserData;
-              deadBrowser.parentNode.destroy();
+              deadBrowser.parentNode.parentNode.parentNode.destroy();
               deadBrowser.destroy();
 
               // The pagehide event that this removal triggers is safe
               // because the browser is no longer current at this point
-              deadBrowser.parentNode.remove();
-              this.mTabBox.selectedPanel = this.selectedTab.linkedBrowser.parentNode;
+              deadBrowser.parentNode.parentNode.parentNode.remove();
+              this.mTabBox.selectedPanel = this.selectedTab.linkedBrowser.parentNode.parentNode.parentNode;
             }
           ]]>
         </body>
@@ -2048,13 +2067,13 @@
             var tabData = this.savedBrowsers.splice(aIndex, 1)[0];
             var deadBrowser = tabData.browserData.browser;
             delete tabData.browserData;
-            deadBrowser.parentNode.destroy();
-            deadBrowser.destroy();
+            deadBrowser.parentNode.parentNode.parentNode.destroy();
+            deadBrowser.parentNode.parentNode.destroy();
 
             // The pagehide event that this removal triggers is safe
             // because the browser is no longer current at this point
-            deadBrowser.parentNode.remove();
-            this.mTabBox.selectedPanel = this.selectedTab.linkedBrowser.parentNode;
+            deadBrowser.parentNode.parentNode.parentNode.remove();
+            this.mTabBox.selectedPanel = this.selectedTab.linkedBrowser.parentNode.parentNode.parentNode;
             return true;
           ]]>
         </body>
@@ -2202,6 +2221,15 @@
                 return browser;
 
             return null;
+          ]]>
+        </body>
+      </method>
+
+      <method name="getBrowserContainer">
+        <parameter name="aBrowser"/>
+        <body>
+          <![CDATA[
+            return (aBrowser || this.mCurrentBrowser).parentNode.parentNode;
           ]]>
         </body>
       </method>
@@ -3058,7 +3086,7 @@
           if (!this.mPanelContainer)
             return;
 
-          this.mCurrentBrowser = this.mPanelContainer.firstChild.firstChild;
+          this.mCurrentBrowser = this.mPanelContainer.firstChild.firstChild.firstChild.firstChild;
           this.mCurrentTab = this.tabContainer.firstChild;
 
           var uniqueId = "panel" + this.nextTabNumber++;
