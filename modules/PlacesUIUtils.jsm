@@ -7,11 +7,21 @@ var EXPORTED_SYMBOLS = ["PlacesUIUtils"];
 
 Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
 Components.utils.import("resource://gre/modules/Services.jsm");
+Components.utils.import("resource://gre/modules/Timer.jsm");
 
 XPCOMUtils.defineLazyGetter(this, "PlacesUtils", function() {
   Components.utils.import("resource://gre/modules/PlacesUtils.jsm");
   return PlacesUtils;
 });
+XPCOMUtils.defineLazyGetter(this, "PrivateBrowsingUtils", function() {
+  Components.utils.import("resource://gre/modules/PrivateBrowsingUtils.jsm");
+  return PrivateBrowsingUtils;
+});
+
+const gInContentProcess = Services.appinfo.processType == Components.interfaces.nsIXULRuntime.PROCESS_TYPE_CONTENT;
+const FAVICON_REQUEST_TIMEOUT = 60 * 1000;
+// Map from windows to arrays of data about pending favicon loads.
+let gFaviconLoadDataMap = new Map();
 
 // This function isn't public both because it's synchronous and because it is
 // going to be removed in bug 1072833.
@@ -25,7 +35,7 @@ function IsLivemark(aItemId) {
     let idsVec = PlacesUtils.annotations.getItemsWithAnnotation(LIVEMARK_ANNO);
     self.ids = new Set(idsVec);
 
-    let obs = {
+    let obs = Object.freeze({
       QueryInterface: XPCOMUtils.generateQI(Components.interfaces.nsIAnnotationObserver),
 
       onItemAnnotationSet(itemId, annoName) {
@@ -41,7 +51,7 @@ function IsLivemark(aItemId) {
 
       onPageAnnotationSet() { },
       onPageAnnotationRemoved() { },
-    };
+    });
     PlacesUtils.annotations.addObserver(obs);
     PlacesUtils.registerShutdownFunction(() => {
       PlacesUtils.annotations.removeObserver(obs);
@@ -49,6 +59,175 @@ function IsLivemark(aItemId) {
   }
   return self.ids.has(aItemId);
 }
+
+let InternalFaviconLoader = {
+  /**
+   * This gets called for every inner window that is destroyed.
+   * In the parent process, we process the destruction ourselves. In the child process,
+   * we notify the parent which will then process it based on that message.
+   */
+  observe(subject, topic, data) {
+    let innerWindowID = subject.QueryInterface(Components.interfaces.nsISupportsPRUint64).data;
+    this.removeRequestsForInner(innerWindowID);
+  },
+
+  /**
+   * Actually cancel the request, and clear the timeout for cancelling it.
+   */
+  _cancelRequest({uri, innerWindowID, timerID, callback}, reason) {
+    // Break cycle
+    let request = callback.request;
+    delete callback.request;
+    // Ensure we don't time out.
+    clearTimeout(timerID);
+    try {
+      request.cancel();
+    } catch (ex) {
+      Components.utils.reportError("When cancelling a request for " + uri.spec + " because " + reason + ", it was already canceled!");
+    }
+  },
+
+  /**
+   * Called for every inner that gets destroyed, only in the parent process.
+   */
+  removeRequestsForInner(innerID) {
+    for (let [window, loadDataForWindow] of gFaviconLoadDataMap) {
+      let newLoadDataForWindow = loadDataForWindow.filter(loadData => {
+        let innerWasDestroyed = loadData.innerWindowID == innerID;
+        if (innerWasDestroyed) {
+          this._cancelRequest(loadData, "the inner window was destroyed or a new favicon was loaded for it");
+        }
+        // Keep the items whose inner is still alive.
+        return !innerWasDestroyed;
+      });
+      // Map iteration with for...of is safe against modification, so
+      // now just replace the old value:
+      gFaviconLoadDataMap.set(window, newLoadDataForWindow);
+    }
+  },
+
+  /**
+   * Called when a toplevel chrome window unloads. We use this to tidy up after ourselves,
+   * avoid leaks, and cancel any remaining requests. The last part should in theory be
+   * handled by the inner-window-destroyed handlers. We clean up just to be on the safe side.
+   */
+  onUnload(win) {
+    let loadDataForWindow = gFaviconLoadDataMap.get(win);
+    if (loadDataForWindow) {
+      for (let loadData of loadDataForWindow) {
+        this._cancelRequest(loadData, "the chrome window went away");
+      }
+    }
+    gFaviconLoadDataMap.delete(win);
+  },
+
+  /**
+   * Remove a particular favicon load's loading data from our map tracking
+   * load data per chrome window.
+   *
+   * @param win
+   *        the chrome window in which we should look for this load
+   * @param filterData ({innerWindowID, uri, callback})
+   *        the data we should use to find this particular load to remove.
+   *
+   * @return the loadData object we removed, or null if we didn't find any.
+   */
+  _removeLoadDataFromWindowMap(win, {innerWindowID, uri, callback}) {
+    let loadDataForWindow = gFaviconLoadDataMap.get(win);
+    if (loadDataForWindow) {
+      let itemIndex = loadDataForWindow.findIndex(loadData => {
+        return loadData.innerWindowID == innerWindowID &&
+               loadData.uri.equals(uri) &&
+               loadData.callback.request == callback.request;
+      });
+      if (itemIndex != -1) {
+        let loadData = loadDataForWindow[itemIndex];
+        loadDataForWindow.splice(itemIndex, 1);
+        return loadData;
+      }
+    }
+    return null;
+  },
+
+  /**
+   * Create a function to use as a nsIFaviconDataCallback, so we can remove cancelling
+   * information when the request succeeds. Note that right now there are some edge-cases,
+   * such as about: URIs with chrome:// favicons where the success callback is not invoked.
+   * This is OK: we will 'cancel' the request after the timeout (or when the window goes
+   * away) but that will be a no-op in such cases.
+   */
+  _makeCompletionCallback(win, id) {
+    return {
+      onComplete(uri) {
+        let loadData = InternalFaviconLoader._removeLoadDataFromWindowMap(win, {
+          uri,
+          innerWindowID: id,
+          callback: this,
+        });
+        if (loadData) {
+          clearTimeout(loadData.timerID);
+        }
+        delete this.request;
+      },
+    };
+  },
+
+  ensureInitialized() {
+    if (this._initialized) {
+      return;
+    }
+    this._initialized = true;
+
+    Services.obs.addObserver(this, "inner-window-destroyed", false);
+    Services.ppmm.addMessageListener("Toolkit:inner-window-destroyed", msg => {
+      this.removeRequestsForInner(msg.data);
+    });
+  },
+
+  loadFavicon(browser, principal, uri, requestContextID) {
+    this.ensureInitialized();
+    let win = browser.ownerGlobal;
+    if (!gFaviconLoadDataMap.has(win)) {
+      gFaviconLoadDataMap.set(win, []);
+      let unloadHandler = event => {
+        let doc = event.target;
+        let eventWin = doc.defaultView;
+        if (eventWin == win) {
+          win.removeEventListener("unload", unloadHandler);
+          this.onUnload(win);
+        }
+      };
+      win.addEventListener("unload", unloadHandler, true);
+    }
+
+    let {innerWindowID, currentURI} = browser;
+
+    // First we do the actual setAndFetch call:
+    let loadType = PrivateBrowsingUtils.isWindowPrivate(win)
+      ? PlacesUtils.favicons.FAVICON_LOAD_PRIVATE
+      : PlacesUtils.favicons.FAVICON_LOAD_NON_PRIVATE;
+    let callback = this._makeCompletionCallback(win, innerWindowID);
+    let request = PlacesUtils.favicons.setAndFetchFaviconForPage(currentURI, uri, false,
+                                                                 loadType, callback, principal,
+                                                                 requestContextID);
+
+    // Now register the result so we can cancel it if/when necessary.
+    if (!request) {
+      // The favicon service can return with success but no-op (and leave request
+      // as null) if the icon is the same as the page (e.g. for images) or if it is
+      // the favicon for an error page. In this case, we do not need to do anything else.
+      return;
+    }
+    callback.request = request;
+    let loadData = {innerWindowID, uri, callback};
+    loadData.timerID = setTimeout(() => {
+      this._cancelRequest(loadData, "it timed out");
+      this._removeLoadDataFromWindowMap(win, loadData);
+    }, FAVICON_REQUEST_TIMEOUT);
+    let loadDataForWindow = gFaviconLoadDataMap.get(win);
+    loadDataForWindow.push(loadData);
+  },
+};
 
 var PlacesUIUtils = {
   ORGANIZER_LEFTPANE_VERSION: 6,
@@ -659,6 +838,19 @@ var PlacesUIUtils = {
 
   _getCurrentActiveWin: function PUIU__getCurrentActiveWin() {
     return focusManager.activeWindow || Services.wm.getMostRecentWindow(null);
+  },
+
+  /**
+   * set and fetch a favicon. Can only be used from the parent process.
+   * @param browser   {Browser}   The XUL browser element for which we're fetching a favicon.
+   * @param principal {Principal} The loading principal to use for the fetch.
+   * @param uri       {URI}       The URI to fetch.
+   */
+  loadFavicon(browser, principal, uri, requestContextID) {
+    if (gInContentProcess) {
+      throw new Error("Can't track loads from within the child process!");
+    }
+    InternalFaviconLoader.loadFavicon(browser, principal, uri, requestContextID);
   },
 
   /**
