@@ -117,10 +117,6 @@
         Components.classes["@mozilla.org/network/io-service;1"]
                   .getService(Components.interfaces.nsIIOService);
       </field>
-      <field name="mSecMan" readonly="true">
-        Components.classes["@mozilla.org/scriptsecuritymanager;1"]
-                  .getService(Components.interfaces.nsIScriptSecurityManager);
-      </field>
       <field name="mTabBox" readonly="true">
         document.getAnonymousElementByAttribute(this, "anonid", "tabbox");
       </field>
@@ -1278,9 +1274,12 @@
               return;
 
             try {
-              var feedUri = this.mIOService.newURI(href, targetDoc.characterSet, null);
-              this.mSecMan.checkLoadURIWithPrincipal(targetDoc.nodePrincipal, feedUri,
-                                                     this.mSecMan.DISALLOW_INHERIT_PRINCIPAL);
+              let feedURI = this.mIOService.newURI(href, targetDoc.characterSet);
+              if (!/^https?$/.test(feedURI.scheme)) {
+                return;
+              }
+              urlSecurityCheck(feedURI, targetDoc.nodePrincipal,
+                Ci.nsIScriptSecurityManager.DISALLOW_INHERIT_PRINCIPAL);
             } catch(e) {
               return;
             }
@@ -1318,8 +1317,8 @@
 
           if (!isAllowedPage || !uri.schemeIs("chrome")) {
             try {
-              this.mSecMan.checkLoadURIWithPrincipal(targetDoc.nodePrincipal, uri,
-                                                     this.mSecMan.DISALLOW_SCRIPT);
+              urlSecurityCheck(uri,targetDoc.nodePrincipal,
+                               Ci.nsIScriptSecurityManager.DISALLOW_SCRIPT);
             } catch(e) {
               return null;
             }
