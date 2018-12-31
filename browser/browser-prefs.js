@@ -49,6 +49,7 @@ pref("general.useragent.compatMode.firefox", true);
 pref("general.useragent.complexOverride.moodle", false); // bug 797703; bug 815801
 
 pref("general.useragent.override", "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:52.0) Gecko/20100101 Firefox/52.0 SeaMonkey/2.49.4"); // Useragent Override for compatibility and privacy reasons
+pref("calendar.useragent.extra", "");
 
 // 0 = blank, 1 = home (browser.startup.homepage), 2 = last visited page, 3 = resume previous browser session
 pref("browser.startup.page",                1);
