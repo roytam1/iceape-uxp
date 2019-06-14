@@ -4,14 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+## [v1.4]
 
-## [v1.3] - Unreleased
+## [v1.3] - 2019-06-15
 ### Added
 - Remember spell check language in mailnews composer
 
 ### Fixed
-- UserAgent string displaying calendar version (should just display UA)
+- UserAgent string displaying calendar version string in Navigator (should only display UA)
 - Various MailNews bug fixes inherited from Icedove-UXP
+- Make middleclick close tabs on all platforms.
+
+### Security
+- Backport c-c 1234651: Check view targets for possible unsafe content. (XSS fix)
 
 ## [v1.2] - 2018-11-25
 ### Added
