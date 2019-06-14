@@ -1225,9 +1225,9 @@
         <parameter name="event"/>
         <body>
           <![CDATA[
-            if (event.button != 1 || event.target.localName != 'tab' ||
-                (this.mPrefs.getBoolPref("middlemouse.contentLoadURL") &&
-                !this.mPrefs.getBoolPref("general.autoScroll")))
+            // A middle mouse button click on a tab is a short cut for
+            // closing that tab.
+            if (event.button != 1 || event.target.localName != 'tab')
               return;
 
             this.removeTab(event.target);
