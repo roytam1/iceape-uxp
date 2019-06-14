@@ -913,7 +913,7 @@ nsContextMenu.prototype = {
   // Reload image
   reloadImage: function() {
     urlSecurityCheck(this.mediaURL, this.target.nodePrincipal,
-                     Components.interfaces.nsIScriptSecurityManager.ALLOW_CHROME);
+                     Components.interfaces.nsIScriptSecurityManager.DISALLOW_SCRIPT);
     if (this.target instanceof Components.interfaces.nsIImageLoadingContent)
       this.target.forceReload();
   },
@@ -926,7 +926,7 @@ nsContextMenu.prototype = {
     else {
       viewURL = this.mediaURL;
       urlSecurityCheck(viewURL, this.target.nodePrincipal,
-                       Components.interfaces.nsIScriptSecurityManager.ALLOW_CHROME);
+                       Components.interfaces.nsIScriptSecurityManager.DISALLOW_SCRIPT);
     }
     var doc = this.target.ownerDocument;
     var where = whereToOpenLink(aEvent);
@@ -970,7 +970,7 @@ nsContextMenu.prototype = {
   // Change current window to the URL of the background image.
   viewBGImage: function(aEvent) {
     urlSecurityCheck(this.bgImageURL, this.target.nodePrincipal,
-                     Components.interfaces.nsIScriptSecurityManager.ALLOW_CHROME);
+                     Components.interfaces.nsIScriptSecurityManager.DISALLOW_SCRIPT);
     var doc = this.target.ownerDocument;
     var where = whereToOpenLink(aEvent);
     if (where == "current")
