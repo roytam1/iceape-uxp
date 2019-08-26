@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
-## [v1.4]
+## [v1.5]
+
+## [v1.4] - 2019-08-26
+### Changed
+- Profile Directory (Now ~/.hyperbola/iceape-uxp instead of ~/.mozilla/seamonkey)
 
 ## [v1.3] - 2019-06-15
 ### Added
