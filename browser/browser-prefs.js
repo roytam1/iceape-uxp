@@ -744,6 +744,20 @@ pref("media.eme.enabled", false);
 pref("media.navigator.enabled", false);
 pref("media.peerconnection.enabled", false);
 
+// Cookie Behaviour
+// 0: All cookies are allowed.
+// 1: Only cookies from the originating server are allowed. (Default)
+// 2: No cookies are allowed.
+// 3: Third-party cookies are allowed only if that site has stored cookies already from a previous visit.
+pref("network.cookie.cookieBehavior", 1);
+
+// Cookie Lifetime Policy
+// 0: The cookie's lifetime is supplied by the server.
+// 1: The user is prompted for the cookie's lifetime.
+// 2: The cookie expires at the end of the session (when the browser closes). (Default)
+// 3: The cookie lasts for the number of days specified by network.cookie.lifetime.days.
+pref("network.cookie.lifetimePolicy", 2);
+
 #ifndef XP_MACOSX
 // Restore the spinner that was removed in bug 481359
 pref("ui.use_activity_cursor", true);
