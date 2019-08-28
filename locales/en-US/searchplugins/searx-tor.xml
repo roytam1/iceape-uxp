@@ -6,7 +6,7 @@
   <InputEncoding>UTF-8</InputEncoding>
   <LongName>SearX Metasearch (Tor)</LongName>
   
-    <Url type="text/html" method="post" template="http://eljwdzi4pgrrlwwq.onion/">
+    <Url type="text/html" method="post" template="http://o2jdk5mdsijm2b7l.onion/">
         <Param name="q" value="{searchTerms}" />
     </Url>
 </OpenSearchDescription>

@@ -6,7 +6,7 @@
   <InputEncoding>UTF-8</InputEncoding>
   <LongName>SearX Metasearch</LongName>
   
-    <Url type="text/html" method="post" template="https://searx.good.one.pl/">
+    <Url type="text/html" method="post" template="https://srx.sx/">
         <Param name="q" value="{searchTerms}" />
     </Url>
 </OpenSearchDescription>

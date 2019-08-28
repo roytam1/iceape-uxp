@@ -1,8 +1,9 @@
-goblinrefuge
 hyperbola-packages
 internet-archive
 quitter-is
 searx-tor
 searx
+invidious
+invidious-tor
 wikipedia-en
 yacy
