@@ -351,7 +351,7 @@ nsContextMenu.prototype = {
     var showUndo = InlineSpellCheckerUI.enabled &&
                    InlineSpellCheckerUI.canUndo();
     this.showItem("spell-check-enabled", canSpell);
-    this.showItem("spell-separator", canSpell || this.possibleSpellChecking);
+    this.showItem("spell-separator", canSpell || this.onEditableArea);
     if (canSpell)
       this.setItemAttr("spell-check-enabled", "checked", InlineSpellCheckerUI.enabled);
     this.showItem("spell-add-to-dictionary", onMisspelling);
@@ -375,13 +375,16 @@ nsContextMenu.prototype = {
     if (canSpell && dictMenu) {
       var dictSep = document.getElementById("spell-language-separator");
       InlineSpellCheckerUI.addDictionaryListToMenu(dictMenu, dictSep);
+      this.showItem("spell-add-dictionaries-main", false);
     }
-
-    // when there is no spellchecker but we might be able to spellcheck
-    // add the add to dictionaries item. This will ensure that people
-    // with no dictionaries will be able to download them
-    this.showItem("spell-add-dictionaries-main",
-                  !canSpell && this.possibleSpellChecking);
+    else if (this.onEditableArea) {
+      // when there is no spellchecker but we might be able to spellcheck
+      // add the add to dictionaries item. This will ensure that people
+      // with no dictionaries will be able to download them
+      this.showItem("spell-add-dictionaries-main", true);
+    }
+    else
+      this.showItem("spell-add-dictionaries-main", false);
   },
 
   initClipboardItems: function() {
@@ -515,6 +518,11 @@ nsContextMenu.prototype = {
 
     const xulNS = "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
 
+    if (aNode.namespaceURI == xulNS) {
+      this.shouldDisplay = false;
+      return;
+    }
+
     // Initialize contextual info.
     this.onImage               = false;
     this.onLoadedImage         = false;
@@ -543,39 +551,18 @@ nsContextMenu.prototype = {
     this.autoDownload          = false;
     this.isTextSelected        = false;
     this.isContentSelected     = false;
-    this.possibleSpellChecking = false;
+    this.onEditableArea        = false;
 
     // Remember the node that was clicked.
     this.target = aNode;
 
-    if (aNode.namespaceURI == xulNS) {
-      this.shouldDisplay = false;
-      return;
-    }
+    this.browser = this.target.ownerDocument.defaultView
+                              .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                              .getInterface(Components.interfaces.nsIWebNavigation)
+                              .QueryInterface(Components.interfaces.nsIDocShell)
+                              .chromeEventHandler;
 
     this.autoDownload = Services.prefs.getBoolPref("browser.download.useDownloadDir");
-
-    // if the document is editable, show context menu like in text inputs
-    var win = this.target.ownerDocument.defaultView;
-    if (win) {
-      var webNav = win.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
-                      .getInterface(Components.interfaces.nsIWebNavigation);
-      this.browser = webNav.QueryInterface(Components.interfaces.nsIDocShell)
-                           .chromeEventHandler;
-      var editingSession = webNav.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
-                                 .getInterface(Components.interfaces.nsIEditingSession);
-      if (editingSession.windowIsEditable(win) &&
-          this.isTargetEditable() && this.target.spellcheck) {
-        this.onTextInput           = true;
-        this.possibleSpellChecking = true;
-        InlineSpellCheckerUI.init(editingSession.getEditorForWindow(win));
-        InlineSpellCheckerUI.initFromEvent(aRangeParent, aRangeOffset);
-        var canSpell = InlineSpellCheckerUI.canSpellCheck;
-        this.showItem("spell-check-enabled", canSpell);
-        this.showItem("spell-separator", canSpell);
-        return;
-      }
-    }
 
     // Check if we are in a synthetic document (stand alone image, video, etc.).
     this.inSyntheticDoc = this.target.ownerDocument.mozSyntheticDocument;
@@ -620,7 +607,7 @@ nsContextMenu.prototype = {
         // allow spellchecking UI on all writable text boxes except passwords
         if (this.onTextInput && !this.target.readOnly &&
             this.target.mozIsTextField(true) && this.target.spellcheck) {
-          this.possibleSpellChecking = true;
+          this.onEditableArea = true;
           InlineSpellCheckerUI.init(this.target.QueryInterface(Components.interfaces.nsIDOMNSEditableElement).editor);
           InlineSpellCheckerUI.initFromEvent(aRangeParent, aRangeOffset);
         }
@@ -629,7 +616,7 @@ nsContextMenu.prototype = {
       else if (this.target instanceof HTMLTextAreaElement) {
         this.onTextInput = this.isTextBoxEnabled(this.target);
         if (this.onTextInput && !this.target.readOnly && this.target.spellcheck) {
-          this.possibleSpellChecking = true;
+          this.onEditableArea = true;
           InlineSpellCheckerUI.init(this.target.QueryInterface(Components.interfaces.nsIDOMNSEditableElement).editor);
           InlineSpellCheckerUI.initFromEvent(aRangeParent, aRangeOffset);
         }
@@ -688,19 +675,8 @@ nsContextMenu.prototype = {
     // We have meta data on images.
     this.onMetaDataItem = this.onImage;
 
-    // See if the user clicked on MathML
-    const NS_MathML = "http://www.w3.org/1998/Math/MathML";
-    if ((this.target.nodeType == Node.TEXT_NODE &&
-         this.target.parentNode.namespaceURI == NS_MathML) ||
-        (this.target.namespaceURI == NS_MathML))
-      this.onMathML = true;
-
-    // See if the user clicked in a frame.
-    var docDefaultView = this.target.ownerDocument.defaultView;
-    if (docDefaultView != docDefaultView.top)
-      this.inFrame = true;
-
     // Bubble out, looking for items of interest
+    const NS_MathML = "http://www.w3.org/1998/Math/MathML";
     const XMLNS = "http://www.w3.org/XML/1998/namespace";
     var elem = this.target;
     while (elem) {
@@ -757,6 +733,44 @@ nsContextMenu.prototype = {
         }
       }
       elem = elem.parentNode;
+    }
+
+    // See if the user clicked on MathML
+    if ((this.target.nodeType == Node.TEXT_NODE &&
+         this.target.parentNode.namespaceURI == NS_MathML) ||
+        (this.target.namespaceURI == NS_MathML))
+      this.onMathML = true;
+
+    // See if the user clicked in a frame.
+    var docDefaultView = this.target.ownerDocument.defaultView;
+    if (docDefaultView != docDefaultView.top)
+      this.inFrame = true;
+
+    // if the document is editable, show context menu like in text inputs
+    if (!this.onEditableArea) {
+      var win = this.target.ownerDocument.defaultView;
+      if (win) {
+        var editingSession = win.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                                .getInterface(Components.interfaces.nsIWebNavigation)
+                                .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                                .getInterface(Components.interfaces.nsIEditingSession);
+        if (editingSession.windowIsEditable(win) &&
+            this.isTargetEditable() && this.target.spellcheck) {
+          this.onTextInput       = true;
+          this.onKeywordField    = false;
+          this.onImage           = false;
+          this.onLoadedImage     = false;
+          this.onMathML          = false;
+          this.inFrame           = false;
+          this.hasBGImage        = false;
+          this.onEditableArea    = true;
+          InlineSpellCheckerUI.init(editingSession.getEditorForWindow(win));
+          InlineSpellCheckerUI.initFromEvent(aRangeParent, aRangeOffset);
+          var canSpell = InlineSpellCheckerUI.canSpellCheck;
+          this.showItem("spell-check-enabled", canSpell);
+          this.showItem("spell-separator", canSpell);
+        }
+      }
     }
   },
 
