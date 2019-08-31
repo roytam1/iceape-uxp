@@ -6,9 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 ## [v1.5]
 
-## [v1.4] - 2019-08-26
+## [v1.4] - 2019-08-31
 ### Changed
 - Profile Directory (Now ~/.hyperbola/iceape-uxp instead of ~/.mozilla/seamonkey)
+- Default Bookmarks
+- Cookie Preferences: Blocks Third-Party by default / Delete them at end of Session
+
+### Fixed
+- Backports for various ContextMenu bugs
+- Broken Search Engines
+
+### Removed
+- Code Cleanup: Unused files in package-manifest.in
 
 ## [v1.3] - 2019-06-15
 ### Added
