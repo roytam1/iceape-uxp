@@ -322,7 +322,6 @@
 @RESPATH@/components/toolkit_formautofill.xpt
 @RESPATH@/components/toolkit_osfile.xpt
 @RESPATH@/components/toolkit_perfmonitoring.xpt
-@RESPATH@/components/toolkit_securityreporter.xpt
 @RESPATH@/components/toolkit_xulstore.xpt
 @RESPATH@/components/toolkitplaces.manifest
 @RESPATH@/components/toolkitprofile.xpt
@@ -336,12 +335,7 @@
 @RESPATH@/components/unicharutil.xpt
 @RESPATH@/components/update.xpt
 @RESPATH@/components/uriloader.xpt
-@RESPATH@/components/url-classifier.xpt
 @RESPATH@/components/urlformatter.xpt
-
-; Security Reports
-@RESPATH@/components/SecurityReporter.manifest
-@RESPATH@/components/SecurityReporter.js
 
 @RESPATH@/components/webBrowser_core.xpt
 @RESPATH@/components/webbrowserpersist.xpt
@@ -416,9 +410,7 @@
 @RESPATH@/components/nsAbout.js
 @RESPATH@/components/nsAsyncShutdown.manifest
 @RESPATH@/components/nsAsyncShutdown.js
-@RESPATH@/components/nsBlocklistService.js
 @RESPATH@/components/blocklist.manifest
-@RESPATH@/components/nsBlocklistServiceContent.js
 @RESPATH@/components/nsBrowserContentHandler.js
 @RESPATH@/components/nsComposerCmdLineHandler.js
 @RESPATH@/components/nsComposerCmdLineHandler.manifest
@@ -477,10 +469,6 @@
 #endif
 @RESPATH@/components/nsUpdateTimerManager.js
 @RESPATH@/components/nsUpdateTimerManager.manifest
-@RESPATH@/components/nsURLClassifier.manifest
-@RESPATH@/components/nsUrlClassifierHashCompleter.js
-@RESPATH@/components/nsUrlClassifierLib.js
-@RESPATH@/components/nsUrlClassifierListManager.js
 @RESPATH@/components/nsURLFormatter.js
 @RESPATH@/components/nsURLFormatter.manifest
 @RESPATH@/components/nsWebHandlerApp.js
@@ -529,8 +517,6 @@
 @RESPATH@/components/txEXSLTRegExFunctions.manifest
 @RESPATH@/components/UnifiedComplete.js
 @RESPATH@/components/Weave.js
-@RESPATH@/components/webideCli.js
-@RESPATH@/components/webideComponents.manifest
 @RESPATH@/components/WebContentConverter.js
 @RESPATH@/components/WebVTT.manifest
 @RESPATH@/components/WebVTTParserWrapper.js
@@ -547,11 +533,6 @@
 @RESPATH@/chrome/recording/*
 @RESPATH@/chrome/toolkit@JAREXT@
 @RESPATH@/chrome/toolkit.manifest
-
-; [Webide Files]
-@RESPATH@/chrome/webide@JAREXT@
-@RESPATH@/chrome/webide.manifest
-@RESPATH@/@PREF_DIR@/webide-prefs.js
 
 ; DevTools
 @RESPATH@/chrome/devtools@JAREXT@
@@ -613,7 +594,7 @@
 @RESPATH@/chrome/icons/default/places.png
 @RESPATH@/chrome/icons/default/places16.png
 @RESPATH@/chrome/icons/default/places48.png
-@RESPATH@/chrome/icons/default/seamonkey.png
+@RESPATH@/chrome/icons/default/iceape.png
 #ifdef MOZ_UPDATER
 @RESPATH@/icons/updater.png
 #endif
@@ -817,8 +798,6 @@ bin/libfreebl_32int64_3.so
 @RESPATH@/components/mimeJSComponents.js
 @RESPATH@/components/msgAsyncPrompter.js
 @RESPATH@/components/msgMime.manifest
-; OAuth2 for mail
-@RESPATH@/components/msgOAuth2Module.js
 @RESPATH@/components/newsblog.js
 @RESPATH@/components/newsblog.manifest
 @RESPATH@/components/nsAbAutoCompleteMyDomain.js
@@ -936,9 +915,5 @@ bin/libfreebl_32int64_3.so
 
 #ifdef MOZ_CALENDAR
 [calendar]
-#ifdef NIGHTLY_BUILD
 @RESPATH@/extensions/{ee86d35c-86ba-44f3-bd9d-854163f8f07a}/
-#else
-@RESPATH@/distribution/extensions/{ee86d35c-86ba-44f3-bd9d-854163f8f07a}/
-#endif
 #endif
