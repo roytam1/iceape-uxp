@@ -1115,12 +1115,11 @@ nsContextMenu.prototype = {
     }
 
     // set up a channel to do the saving
-    var ios = Services.io;
-    var channel = ios.newChannel2(linkURL, null, null, null,
-                                  Services.scriptSecurityManager.getSystemPrincipal(),
-                                  null,
-                                  Components.interfaces.nsILoadInfo.SEC_ALLOW_CROSS_ORIGIN_DATA_IS_NULL,
-                                  Components.interfaces.nsIContentPolicy.TYPE_OTHER);
+    var channel = NetUtil.newChannel({
+                    uri: makeURI(linkURL),
+                    loadUsingSystemPrincipal: true,
+                    securityFlags: Ci.nsILoadInfo.SEC_ALLOW_CROSS_ORIGIN_DATA_IS_NULL
+                  });
     channel.notificationCallbacks = new Callbacks();
 
     var flags = Components.interfaces.nsIChannel.LOAD_CALL_CONTENT_SNIFFERS;

@@ -905,33 +905,6 @@ bin/libfreebl_32int64_3.so
 @BINPATH@/clang_rt.asan_dynamic-i386.dll
 #endif
 
-[chatzilla]
-#ifdef MOZ_OMNIJAR
-@RESPATH@/distribution/extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}.xpi
-#else
-@RESPATH@/extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}/chrome/chatzilla@JAREXT@
-#ifdef MOZ_GTK
-@RESPATH@/extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}/chrome/icons/default/chatzilla-window.xpm
-@RESPATH@/extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}/chrome/icons/default/chatzilla-window16.xpm
-#elifdef XP_WIN32
-@RESPATH@/extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}/chrome/icons/default/chatzilla-window.ico
-#endif
-@RESPATH@/extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}/chrome.manifest
-@RESPATH@/extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}/components/chatzilla-service.js
-@RESPATH@/extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}/components/components.list
-@RESPATH@/extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}/install.rdf
-#endif
-#ifdef LOCALE_BUILD
-#ifdef MOZ_OMNIJAR
-@RESPATH@/distribution/extensions/langpack-@AB_CD@@chatzilla.mozilla.org.xpi
-#else
-@RESPATH@/extensions/langpack-@AB_CD@@chatzilla.mozilla.org/chrome/chatzilla@JAREXT@
-@RESPATH@/extensions/langpack-@AB_CD@@chatzilla.mozilla.org/chrome.manifest
-@RESPATH@/extensions/langpack-@AB_CD@@chatzilla.mozilla.org/install.js
-@RESPATH@/extensions/langpack-@AB_CD@@chatzilla.mozilla.org/install.rdf
-#endif
-#endif
-
 [inspector]
 #ifdef MOZ_OMNIJAR
 @RESPATH@/distribution/extensions/inspector@mozilla.org.xpi

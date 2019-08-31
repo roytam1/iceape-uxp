@@ -28,28 +28,8 @@
   ; Seperation between titles/text
   StrCpy $R4 25
 
-  ${If} ${FileExists} "$EXEDIR\optional\distribution\extensions\{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}.xpi"
-    WriteINIStr "$PLUGINSDIR\components.ini" "Field $R1" Type   "checkbox"
-    WriteINIStr "$PLUGINSDIR\components.ini" "Field $R1" Text   "$(CHATZILLA_TITLE)"
-    WriteINIStr "$PLUGINSDIR\components.ini" "Field $R1" Left   "15"
-    WriteINIStr "$PLUGINSDIR\components.ini" "Field $R1" Right  "-1"
-    WriteINIStr "$PLUGINSDIR\components.ini" "Field $R1" Top    "$R2"
-    WriteINIStr "$PLUGINSDIR\components.ini" "Field $R1" Bottom "$R3"
-    WriteINIStr "$PLUGINSDIR\components.ini" "Field $R1" State  "1"
-    WriteINIStr "$PLUGINSDIR\components.ini" "Field $R1" Flags  "GROUP"
-    ${GetSize} "$EXEDIR\optional\distribution\extensions\{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}.xpi" "/S=0K" $0 $8 $9
-    ${If} ${FileExists} "$EXEDIR\optional\distribution\extensions\langpack-${AB_CD}@chatzilla.mozilla.org.xpi"
-      ${GetSize} "$EXEDIR\optional\distribution\extensions\langpack-${AB_CD}@chatzilla.mozilla.org.xpi" "/S=0K" $1 $8 $9
-      IntOp $0 $0 + $1
-    ${EndIf}
-    SectionSetSize ${CZ_IDX} $0
-    IntOp $R1 $R1 + 1
-    IntOp $R2 $R2 + $R4
-    IntOp $R3 $R3 + $R4
-  ${Else}
-    ; Hide ChatZilla in the components page if it isn't available.
-    SectionSetText ${CZ_IDX} ""
-  ${EndIf}
+  ; Hide ChatZilla in the components page because it isn't available.
+  SectionSetText ${CZ_IDX} ""
 
   ${If} ${FileExists} "$EXEDIR\optional\distribution\extensions\inspector@mozilla.org.xpi"
     ; Set the details for DOMI
@@ -95,18 +75,6 @@
   StrCpy $R2 27
   ; Bottom of label box
   StrCpy $R3 47
-
-  ${If} ${FileExists} "$EXEDIR\optional\distribution\extensions\{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}.xpi"
-    WriteINIStr "$PLUGINSDIR\components.ini" "Field $R1" Type   "label"
-    WriteINIStr "$PLUGINSDIR\components.ini" "Field $R1" Text   "$(CHATZILLA_TEXT)"
-    WriteINIStr "$PLUGINSDIR\components.ini" "Field $R1" Left   "30"
-    WriteINIStr "$PLUGINSDIR\components.ini" "Field $R1" Right  "-1"
-    WriteINIStr "$PLUGINSDIR\components.ini" "Field $R1" Top    "$R2"
-    WriteINIStr "$PLUGINSDIR\components.ini" "Field $R1" Bottom "$R3"
-    IntOp $R1 $R1 + 1
-    IntOp $R2 $R2 + $R4
-    IntOp $R3 $R3 + $R4
-  ${EndIf}
 
   ${If} ${FileExists} "$EXEDIR\optional\distribution\extensions\inspector@mozilla.org.xpi"
     WriteINIStr "$PLUGINSDIR\components.ini" "Field $R1" Type   "label"

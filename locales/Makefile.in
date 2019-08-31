@@ -114,10 +114,6 @@ libs:: $(FINAL_TARGET)/defaults/profile/panels.rdf ;
 libs:: $(call MERGE_FILES,$(addprefix profile/chrome/,$(PROFILE_CHROME)))
 	$(SYSINSTALL) $(IFLAGS1) $^ $(FINAL_TARGET)/defaults/profile/chrome
 
-# Extend l10n.mk clobber-% target for our localised extensions
-clobber-%:
-	$(RM) -rf $(DIST)/xpi-stage/chatzilla-$* $(DIST)/xpi-stage/chatzilla-*.$*.xpi
-
 libs-%:
 	$(NSINSTALL) -D $(DIST)/install
 	@$(MAKE) -C $(DEPTH)/toolkit/locales libs-$*
@@ -214,8 +210,6 @@ endif
 	@echo
 
 .PHONY: repackage-extensions
-
-MOZ_PKG_EXTRAL10N += extensions/langpack-$(AB_CD)@chatzilla.mozilla.org=$(DIST)/xpi-stage/chatzilla-$(AB_CD)
 
 ifdef MOZ_CALENDAR
 LIGHTNING_PATH=$(DEPTH)/calendar/lightning

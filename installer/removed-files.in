@@ -17,7 +17,6 @@
 #endif
 @DIR_MACOS@.autoreg
 @DIR_MACOS@chrome/app-chrome.manifest
-@DIR_MACOS@chrome/chatzilla.jar
 @DIR_MACOS@chrome/debugqa.jar
 @DIR_MACOS@chrome/debugqa.manifest
 @DIR_MACOS@chrome/classic.manifest
@@ -75,9 +74,6 @@
 @DIR_MACOS@chrome/icons/default/bookmark-window16.xpm
 @DIR_MACOS@chrome/icons/default/calendar-window.xpm
 @DIR_MACOS@chrome/icons/default/calendar-window16.xpm
-@DIR_MACOS@chrome/icons/default/chatzilla-window.ico
-@DIR_MACOS@chrome/icons/default/chatzilla-window.xpm
-@DIR_MACOS@chrome/icons/default/chatzilla-window16.xpm
 @DIR_MACOS@chrome/icons/default/default.xpm
 @DIR_MACOS@chrome/icons/default/default16.xpm
 @DIR_MACOS@chrome/icons/default/downloadManager.xpm
@@ -130,7 +126,6 @@ chrome/icons/default/venkman-window.ico
 @DIR_MACOS@components/bookmarks.xpt
 @DIR_MACOS@components/BrowserElementAPI.js
 @DIR_MACOS@components/@DLL_PREFIX@caps@DLL_SUFFIX@
-@DIR_MACOS@components/chatzilla-service.js
 @DIR_MACOS@components/@DLL_PREFIX@chrome@DLL_SUFFIX@
 @DIR_MACOS@components/components.list
 @DIR_MACOS@components/compreg.dat
@@ -730,15 +725,10 @@ Throbber-small.gif
   @DIR_MACOS@defaults/autoconfig/prefcalls.js
   @DIR_MACOS@extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}/
   @DIR_MACOS@extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}/chrome/
-  @DIR_MACOS@extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}/chrome/chatzilla.jar
   @DIR_MACOS@extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}/chrome/icons/
   @DIR_MACOS@extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}/chrome/icons/default/
-  @DIR_MACOS@extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}/chrome/icons/default/chatzilla-window.xpm
-  @DIR_MACOS@extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}/chrome/icons/default/chatzilla-window16.xpm
-  @DIR_MACOS@extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}/chrome/icons/default/chatzilla-window.ico
   @DIR_MACOS@extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}/chrome.manifest
   @DIR_MACOS@extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}/components/
-  @DIR_MACOS@extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}/components/chatzilla-service.js
   @DIR_MACOS@extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}/install.rdf
   @DIR_MACOS@extensions/{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}.xpi
 #ifndef MOZ_OMNIJAR
@@ -783,108 +773,6 @@ Throbber-small.gif
   @DIR_MACOS@extensions/inspector@mozilla.org/defaults/preferences/
   @DIR_MACOS@extensions/inspector@mozilla.org/defaults/preferences/inspector.js
   @DIR_MACOS@extensions/inspector@mozilla.org.xpi
-  @DIR_MACOS@extensions/langpack-ca@chatzilla.mozilla.org/chrome/chatzilla.jar
-  @DIR_MACOS@extensions/langpack-ca@chatzilla.mozilla.org/chrome/chatzilla.manifest
-  @DIR_MACOS@extensions/langpack-ca@chatzilla.mozilla.org/chrome.manifest
-  @DIR_MACOS@extensions/langpack-ca@chatzilla.mozilla.org/install.js
-  @DIR_MACOS@extensions/langpack-ca@chatzilla.mozilla.org/install.rdf
-  @DIR_MACOS@extensions/langpack-ca@chatzilla.mozilla.org.xpi
-  @DIR_MACOS@extensions/langpack-cs@chatzilla.mozilla.org/chrome/chatzilla.jar
-  @DIR_MACOS@extensions/langpack-cs@chatzilla.mozilla.org/chrome/chatzilla.manifest
-  @DIR_MACOS@extensions/langpack-cs@chatzilla.mozilla.org/chrome.manifest
-  @DIR_MACOS@extensions/langpack-cs@chatzilla.mozilla.org/install.js
-  @DIR_MACOS@extensions/langpack-cs@chatzilla.mozilla.org/install.rdf
-  @DIR_MACOS@extensions/langpack-cs@chatzilla.mozilla.org.xpi
-  @DIR_MACOS@extensions/langpack-de@chatzilla.mozilla.org/chrome/chatzilla.jar
-  @DIR_MACOS@extensions/langpack-de@chatzilla.mozilla.org/chrome/chatzilla.manifest
-  @DIR_MACOS@extensions/langpack-de@chatzilla.mozilla.org/chrome.manifest
-  @DIR_MACOS@extensions/langpack-de@chatzilla.mozilla.org/install.js
-  @DIR_MACOS@extensions/langpack-de@chatzilla.mozilla.org/install.rdf
-  @DIR_MACOS@extensions/langpack-de@chatzilla.mozilla.org.xpi
-  @DIR_MACOS@extensions/langpack-es-ES@chatzilla.mozilla.org/chrome/chatzilla.jar
-  @DIR_MACOS@extensions/langpack-es-ES@chatzilla.mozilla.org/chrome/chatzilla.manifest
-  @DIR_MACOS@extensions/langpack-es-ES@chatzilla.mozilla.org/chrome.manifest
-  @DIR_MACOS@extensions/langpack-es-ES@chatzilla.mozilla.org/install.js
-  @DIR_MACOS@extensions/langpack-es-ES@chatzilla.mozilla.org/install.rdf
-  @DIR_MACOS@extensions/langpack-es-ES@chatzilla.mozilla.org.xpi
-  @DIR_MACOS@extensions/langpack-fi@chatzilla.mozilla.org/install.rdf
-  @DIR_MACOS@extensions/langpack-fi@chatzilla.mozilla.org/chrome/chatzilla.jar
-  @DIR_MACOS@extensions/langpack-fi@chatzilla.mozilla.org/chrome/chatzilla.manifest
-  @DIR_MACOS@extensions/langpack-fi@chatzilla.mozilla.org/chrome.manifest
-  @DIR_MACOS@extensions/langpack-fi@chatzilla.mozilla.org/install.js
-  @DIR_MACOS@extensions/langpack-fi@chatzilla.mozilla.org.xpi
-  @DIR_MACOS@extensions/langpack-fr@chatzilla.mozilla.org/chrome/chatzilla.jar
-  @DIR_MACOS@extensions/langpack-fr@chatzilla.mozilla.org/chrome/chatzilla.manifest
-  @DIR_MACOS@extensions/langpack-fr@chatzilla.mozilla.org/chrome.manifest
-  @DIR_MACOS@extensions/langpack-fr@chatzilla.mozilla.org/install.js
-  @DIR_MACOS@extensions/langpack-fr@chatzilla.mozilla.org/install.rdf
-  @DIR_MACOS@extensions/langpack-fr@chatzilla.mozilla.org.xpi
-  @DIR_MACOS@extensions/langpack-it@chatzilla.mozilla.org/chrome/chatzilla.jar
-  @DIR_MACOS@extensions/langpack-it@chatzilla.mozilla.org/chrome/chatzilla.manifest
-  @DIR_MACOS@extensions/langpack-it@chatzilla.mozilla.org/chrome.manifest
-  @DIR_MACOS@extensions/langpack-it@chatzilla.mozilla.org/install.js
-  @DIR_MACOS@extensions/langpack-it@chatzilla.mozilla.org/install.rdf
-  @DIR_MACOS@extensions/langpack-it@chatzilla.mozilla.org.xpi
-  @DIR_MACOS@extensions/langpack-ja@chatzilla.mozilla.org/chrome/chatzilla.jar
-  @DIR_MACOS@extensions/langpack-ja@chatzilla.mozilla.org/chrome/chatzilla.manifest
-  @DIR_MACOS@extensions/langpack-ja@chatzilla.mozilla.org/chrome.manifest
-  @DIR_MACOS@extensions/langpack-ja@chatzilla.mozilla.org/install.js
-  @DIR_MACOS@extensions/langpack-ja@chatzilla.mozilla.org/install.rdf
-  @DIR_MACOS@extensions/langpack-ja@chatzilla.mozilla.org.xpi
-  @DIR_MACOS@extensions/langpack-ja-JP-mac@chatzilla.mozilla.org/chrome/chatzilla.jar
-  @DIR_MACOS@extensions/langpack-ja-JP-mac@chatzilla.mozilla.org/chrome/chatzilla.manifest
-  @DIR_MACOS@extensions/langpack-ja-JP-mac@chatzilla.mozilla.org/chrome.manifest
-  @DIR_MACOS@extensions/langpack-ja-JP-mac@chatzilla.mozilla.org/install.js
-  @DIR_MACOS@extensions/langpack-ja-JP-mac@chatzilla.mozilla.org/install.rdf
-  @DIR_MACOS@extensions/langpack-ja-JP-mac@chatzilla.mozilla.org.xpi
-  @DIR_MACOS@extensions/langpack-nb-NO@chatzilla.mozilla.org/chrome/chatzilla.jar
-  @DIR_MACOS@extensions/langpack-nb-NO@chatzilla.mozilla.org/chrome/chatzilla.manifest
-  @DIR_MACOS@extensions/langpack-nb-NO@chatzilla.mozilla.org/chrome.manifest
-  @DIR_MACOS@extensions/langpack-nb-NO@chatzilla.mozilla.org/install.js
-  @DIR_MACOS@extensions/langpack-nb-NO@chatzilla.mozilla.org/install.rdf
-  @DIR_MACOS@extensions/langpack-nb-NO@chatzilla.mozilla.org.xpi
-  @DIR_MACOS@extensions/langpack-pl@chatzilla.mozilla.org/install.rdf
-  @DIR_MACOS@extensions/langpack-pl@chatzilla.mozilla.org/chrome/chatzilla.jar
-  @DIR_MACOS@extensions/langpack-pl@chatzilla.mozilla.org/chrome/chatzilla.manifest
-  @DIR_MACOS@extensions/langpack-pl@chatzilla.mozilla.org/chrome.manifest
-  @DIR_MACOS@extensions/langpack-pl@chatzilla.mozilla.org/install.js
-  @DIR_MACOS@extensions/langpack-pl@chatzilla.mozilla.org.xpi
-  @DIR_MACOS@extensions/langpack-pt-BR@chatzilla.mozilla.org/chrome/chatzilla.jar
-  @DIR_MACOS@extensions/langpack-pt-BR@chatzilla.mozilla.org/chrome/chatzilla.manifest
-  @DIR_MACOS@extensions/langpack-pt-BR@chatzilla.mozilla.org/chrome.manifest
-  @DIR_MACOS@extensions/langpack-pt-BR@chatzilla.mozilla.org/install.js
-  @DIR_MACOS@extensions/langpack-pt-BR@chatzilla.mozilla.org/install.rdf
-  @DIR_MACOS@extensions/langpack-pt-BR@chatzilla.mozilla.org.xpi
-  @DIR_MACOS@extensions/langpack-pt-PT@chatzilla.mozilla.org/chrome/chatzilla.jar
-  @DIR_MACOS@extensions/langpack-pt-PT@chatzilla.mozilla.org/chrome/chatzilla.manifest
-  @DIR_MACOS@extensions/langpack-pt-PT@chatzilla.mozilla.org/chrome.manifest
-  @DIR_MACOS@extensions/langpack-pt-PT@chatzilla.mozilla.org/install.js
-  @DIR_MACOS@extensions/langpack-pt-PT@chatzilla.mozilla.org/install.rdf
-  @DIR_MACOS@extensions/langpack-pt-PT@chatzilla.mozilla.org.xpi
-  @DIR_MACOS@extensions/langpack-ru@chatzilla.mozilla.org/chrome/chatzilla.jar
-  @DIR_MACOS@extensions/langpack-ru@chatzilla.mozilla.org/chrome/chatzilla.manifest
-  @DIR_MACOS@extensions/langpack-ru@chatzilla.mozilla.org/chrome.manifest
-  @DIR_MACOS@extensions/langpack-ru@chatzilla.mozilla.org/install.js
-  @DIR_MACOS@extensions/langpack-ru@chatzilla.mozilla.org/install.rdf
-  @DIR_MACOS@extensions/langpack-ru@chatzilla.mozilla.org.xpi
-  @DIR_MACOS@extensions/langpack-si@chatzilla.mozilla.org/chrome/chatzilla.jar
-  @DIR_MACOS@extensions/langpack-si@chatzilla.mozilla.org/chrome/chatzilla.manifest
-  @DIR_MACOS@extensions/langpack-si@chatzilla.mozilla.org/chrome.manifest
-  @DIR_MACOS@extensions/langpack-si@chatzilla.mozilla.org/install.js
-  @DIR_MACOS@extensions/langpack-si@chatzilla.mozilla.org/install.rdf
-  @DIR_MACOS@extensions/langpack-si@chatzilla.mozilla.org.xpi
-  @DIR_MACOS@extensions/langpack-sk@chatzilla.mozilla.org/chrome/chatzilla.jar
-  @DIR_MACOS@extensions/langpack-sk@chatzilla.mozilla.org/chrome/chatzilla.manifest
-  @DIR_MACOS@extensions/langpack-sk@chatzilla.mozilla.org/chrome.manifest
-  @DIR_MACOS@extensions/langpack-sk@chatzilla.mozilla.org/install.js
-  @DIR_MACOS@extensions/langpack-sk@chatzilla.mozilla.org/install.rdf
-  @DIR_MACOS@extensions/langpack-sk@chatzilla.mozilla.org.xpi
-  @DIR_MACOS@extensions/langpack-sv-SE@chatzilla.mozilla.org/chrome/chatzilla.jar
-  @DIR_MACOS@extensions/langpack-sv-SE@chatzilla.mozilla.org/chrome/chatzilla.manifest
-  @DIR_MACOS@extensions/langpack-sv-SE@chatzilla.mozilla.org/chrome.manifest
-  @DIR_MACOS@extensions/langpack-sv-SE@chatzilla.mozilla.org/install.js
-  @DIR_MACOS@extensions/langpack-sv-SE@chatzilla.mozilla.org/install.rdf
-  @DIR_MACOS@extensions/langpack-sv-SE@chatzilla.mozilla.org.xpi
   @DIR_MACOS@extensions/langpack-ca@venkman.mozilla.org/chrome/venkman.jar
   @DIR_MACOS@extensions/langpack-ca@venkman.mozilla.org/chrome/venkman.manifest
   @DIR_MACOS@extensions/langpack-ca@venkman.mozilla.org/chrome.manifest
