@@ -4,7 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
-## [v1.5]
+## [v1.6]
+
+## [v1.5] 2019-10-03
+### Fixed
+- Missing dom_bindings.xpt in package-manifest.in
+- Regression Fixes: Overly aggressive code cleanup broke Save Target As and Blocklists
 
 ## [v1.4] - 2019-08-31
 ### Changed
