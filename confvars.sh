@@ -7,20 +7,19 @@ MOZ_APP_BASENAME=Iceape-UXP
 MOZ_APP_VENDOR=Hyperbola
 MOZ_APP_NAME=iceape-uxp
 MOZ_APP_DISPLAYNAME=Iceape-UXP
-MOZ_LDAP_XPCOM=1
 MOZ_COMPOSER=1
 MOZ_DISABLE_EXPORT_JS=1
 MOZ_SUITE=1
 MOZ_BRANDING_DIRECTORY=suite/branding/iceape
 MOZ_OFFICIAL_BRANDING_DIRECTORY=suite/branding/iceape
 MOZ_UPDATER=1
+MOZ_MAILNEWS=1
 # This should usually be the same as the value MAR_CHANNEL_ID.
 # If more than one ID is needed, then you should use a comma separated list
 # of values.
 ACCEPTED_MAR_CHANNEL_IDS=iceape-comm-central
 # The MAR_CHANNEL_ID must not contain the following 3 characters: ",\t "
 MAR_CHANNEL_ID=iceape-comm-central
-MOZ_MORK=1
 MOZ_SERVICES_FXACCOUNTS=1
 MOZ_STATIC_BUILD_UNSUPPORTED=1
 MOZ_WEBGL_CONFORMANT=1
