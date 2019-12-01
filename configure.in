@@ -10,7 +10,6 @@ AC_SUBST(MOZ_SUITE)
 AC_SUBST(MOZ_COMPOSER)
 AC_SUBST(ICEAPEUXP_VERSION)
 AC_DEFINE(MOZ_SEPARATE_MANIFEST_FOR_THEME_OVERRIDES)
-AC_SUBST(MOZ_BUNDLED_FONTS)
 
 dnl Get other versions (for the calendar plugin)
 ICEDOVEUXP_VERSION=`cat ${_topsrcdir}/../mail/config/version.txt`
