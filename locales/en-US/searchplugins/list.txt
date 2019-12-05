@@ -1,9 +1,10 @@
 hyperbola-packages
 internet-archive
-quitter-is
 searx-tor
 searx
 invidious
 invidious-tor
+gnusocial
 wikipedia-en
+wikimedia-commons
 yacy
