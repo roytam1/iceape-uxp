@@ -626,7 +626,7 @@
 @RESPATH@/@PREF_DIR@/browser-prefs.js
 @RESPATH@/@PREF_DIR@/services-sync.js
 @RESPATH@/@PREF_DIR@/composer.js
-@RESPATH@/greprefs.js
+@RESPATH@/goanna.js
 @RESPATH@/defaults/autoconfig/prefcalls.js
 @RESPATH@/defaults/permissions
 ; Warning: changing the path to channel-prefs.js can cause bugs. (Bug 756325)
