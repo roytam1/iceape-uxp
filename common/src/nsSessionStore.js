@@ -1693,18 +1693,25 @@ SessionStoreService.prototype = {
       }
 
       // sessionStorage is saved per principal (cf. nsGlobalWindow::GetSessionStorage)
-      let origin = principal.origin;
+      let origin;
+      try {
+        origin = principal.origin;
+      }
+      catch (ex) {
+        origin = principal.URI.spec;
+      }
+
       if (storageData[origin])
         continue;
 
-      let isHTTPS = principal.uri && principal.url.schemeIs("https");
+      let isHTTPS = principal.URI && principal.URI.schemeIs("https");
       if (!(aFullData || this._checkPrivacyLevel(isHTTPS, aIsPinned)))
         continue;
 
       let storage, storageItemCount = 0;
 
       let window = aDocShell.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
-                                              .getInterface(Components.interfaces.nsIDOMWindow);
+                            .getInterface(Components.interfaces.nsIDOMWindow);
       try {
         let storageManager = aDocShell.QueryInterface(Components.interfaces.nsIDOMStorageManager);
         storage = storageManager.getStorage(window, principal);
