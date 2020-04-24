@@ -31,6 +31,14 @@
       <preference id="geo.enabled"
                   name="geo.enabled"
                   type="bool"/>
+
+      <!-- Opportunistic Encryption -->
+      <preference id="network.http.upgrade-insecure-requests"
+                  name="network.http.upgrade-insecure-requests"
+                  type="bool"/>
+      <preference id="network.http.altsvc.oe"
+                  name="network.http.altsvc.oe"
+                  type="bool"/>
     </preferences>
 
     <!-- User Tracking -->
@@ -69,6 +77,17 @@
                label="&geoDisabled.label;"
                accesskey="&geoDisabled.accesskey;"/>
       </radiogroup>
+    </groupbox>
+
+    <!-- Opportunistic Encryption -->
+    <groupbox id="OpportunisticEncryption">
+      <caption label="&OpEnc.label;"/>
+      <checkbox id="enableUIROpEnc"
+                label="&enableUIROpEnc.label;"
+                preference="network.http.upgrade-insecure-requests" />
+      <checkbox id="enableAltSvcOpEnc"
+                label="&enableAltSvcOpEnc.label;"
+                preference="network.http.altsvc.oe" />
     </groupbox>
   </prefpane>
 </overlay>

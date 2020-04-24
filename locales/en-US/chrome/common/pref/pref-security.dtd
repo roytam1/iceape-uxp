@@ -22,3 +22,7 @@
 <!ENTITY geoEnabled.accesskey             "m">
 <!ENTITY geoDisabled.label                "Disable this feature and deny all requests">
 <!ENTITY geoDisabled.accesskey            "D">
+
+<!ENTITY  OpEnc.label                "Opportunistic Encryption">
+<!ENTITY  enableUIROpEnc.label       "Enable Upgrade Insecure Requests">
+<!ENTITY  enableAltSvcOpEnc.label    "Enable HTTP Alternative Services">
