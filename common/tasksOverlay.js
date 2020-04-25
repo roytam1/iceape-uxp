@@ -15,9 +15,39 @@ function toNavigator()
 function toCookieManager()
 {
   toOpenWindowByType("Navigator:Cookies",
-                     "chrome://communicator/content/cookies/cookieManager.xul",
+                     "chrome://communicator/content/permissions/cookies.xul",
                      "resizable");
 }
+
+// cookie, popup, image, install, geo, desktop-notification, login-saving, offline-app
+function toPermissionsManager(aViewerType, aHost = "") {
+  var windowtype = "Navigator:Permissions-" + aViewerType
+  var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"]
+                     .getService(Components.interfaces.nsIWindowMediator);
+  var existingWindow = wm.getMostRecentWindow(windowtype);
+
+  var params = { allowVisible: !(aViewerType == "offline-app"),
+                 blockVisible: (aViewerType == "image" ||
+                                aViewerType == "cookie" ||
+                                aViewerType == "offline-app"),
+                 sessionVisible: (aViewerType == "cookie"),
+                 prefilledHost: aHost,
+                 permissionType: aViewerType,
+                 windowType: windowtype,
+                 windowTitle: aViewerType + ".title",
+                 introText: aViewerType + ".text"};
+
+  if (existingWindow) {
+    existingWindow.initWithParams(params)
+    existingWindow.focus();
+  }
+  else {
+    window.openDialog("chrome://communicator/content/permissions/permissions.xul", "",
+                      "chrome,resizable=yes", params);
+  }
+}
+
+
 
 function ExpirePassword()
 {

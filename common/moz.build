@@ -7,7 +7,7 @@ DIRS += [
 #    'console',
     'public',
     'src',
-    'cookies',
+    'permissions',
 ]
 
 #EXTRA_COMPONENTS += [

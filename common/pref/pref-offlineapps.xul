@@ -49,7 +49,7 @@
           <button id="offlineNotifyPermissions"
                   label="&offlineNotifyPermissions.label;"
                   accesskey="&offlineNotifyPermissions.accesskey;"
-                  oncommand="toDataManager('|permissions');"/>
+                  oncommand="toPermissionsManager('offline-app');"/>
         </hbox>
       </radiogroup>
       <checkbox id="offlineNotifyAsk"

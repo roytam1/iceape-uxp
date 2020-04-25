@@ -5,9 +5,9 @@
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?> 
-<?xml-stylesheet href="chrome://communicator/content/cookies/cookieManager.css" type="text/css"?> 
+<?xml-stylesheet href="chrome://communicator/content/permissions/cookies.css" type="text/css"?> 
 
-<!DOCTYPE dialog SYSTEM "chrome://communicator/locale/cookies/cookieManager.dtd" >
+<!DOCTYPE dialog SYSTEM "chrome://communicator/locale/permissions/cookies.dtd" >
 
 <window id="CookiesDialog" windowtype="Navigator:Cookies"
         class="windowDialog" title="&window.title;"
@@ -18,10 +18,10 @@
         persist="screenX screenY width height"
         onkeypress="gCookiesWindow.onWindowKeyPress(event);">
 
-  <script src="chrome://communicator/content/cookies/cookieManager.js"/>
+  <script src="chrome://communicator/content/permissions/cookies.js"/>
 
   <stringbundle id="bundleCookies"
-                src="chrome://communicator/locale/cookies/cookieManager.properties"/>
+                src="chrome://communicator/locale/permissions/cookies.properties"/>
 
   <keyset>
     <key key="&windowClose.key;" modifiers="accel" oncommand="window.close();"/>

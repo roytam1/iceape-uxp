@@ -566,6 +566,10 @@
                       accesskey="&cookieDisplayCookiesCmd.accesskey;"
                       oncommand="toCookieManager();
                                  event.stopPropagation();"/>
+            <menuitem id="menuitem_cookiePermissions"
+                      label="Manage Cookie Permissions"
+                      oncommand="toPermissionsManager('cookie', hostUrl());
+                                 event.stopPropagation();"/>
           </menupopup>
         </menu>
         <menu id="menu_imageManager"
@@ -600,7 +604,7 @@
             <menuitem id="menuitem_imageDisplay"
                       label="&cookieDisplayImagesCmd.label;"
                       accesskey="&cookieDisplayImagesCmd.accesskey;"
-                      oncommand="toDataManager(hostUrl() + '|permissions|add|image');
+                      oncommand="toPermissionsManager('image', hostUrl());
                                  event.stopPropagation();"/>
           </menupopup>
         </menu>
@@ -637,7 +641,7 @@
             <menuitem id="menuitem_PopupsManage"
                       label="&popupsManage.label;"
                       accesskey="&popupsManage.accesskey;"
-                      oncommand="toDataManager(hostUrl() + '|permissions|add|popup');
+                      oncommand="toPermissionsManager('popup', hostUrl());
                                  event.stopPropagation();"
                       hidden="true"/>
           </menupopup>

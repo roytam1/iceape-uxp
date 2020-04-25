@@ -250,7 +250,7 @@ SuiteGlue.prototype = {
         // Since this is a web notification, there's probably a browser window.
         var mostRecentBrowserWindow = Services.wm.getMostRecentWindow("navigator:browser");
         if (mostRecentBrowserWindow)
-          mostRecentBrowserWindow.toDataManager("|permissions");
+          mostRecentBrowserWindow.toPermissionsManager('desktop-notification');
         break;
       case "timer-callback":
         // Load the Login Manager data from disk off the main thread, some time
