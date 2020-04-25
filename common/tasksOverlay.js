@@ -12,6 +12,13 @@ function toNavigator()
     OpenBrowserWindow();
 }
 
+function toCookieManager()
+{
+  toOpenWindowByType("Navigator:Cookies",
+                     "chrome://communicator/content/cookies/cookieManager.xul",
+                     "resizable");
+}
+
 function ExpirePassword()
 {
   // Queries the HTTP Auth Manager and clears all sessions

@@ -564,7 +564,7 @@
             <menuitem id="menuitem_cookieDisplay"
                       label="&cookieDisplayCookiesCmd.label;"
                       accesskey="&cookieDisplayCookiesCmd.accesskey;"
-                      oncommand="toDataManager(hostUrl() + '|cookies');
+                      oncommand="toCookieManager();
                                  event.stopPropagation();"/>
           </menupopup>
         </menu>
