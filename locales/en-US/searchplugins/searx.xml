@@ -6,7 +6,7 @@
   <InputEncoding>UTF-8</InputEncoding>
   <LongName>SearX Metasearch</LongName>
   
-    <Url type="text/html" method="post" template="https://burtrum.org/searx/">
+    <Url type="text/html" method="post" template="https://searx.privatenet.cf/">
         <Param name="q" value="{searchTerms}" />
     </Url>
 </OpenSearchDescription>
