@@ -2513,8 +2513,8 @@ function UpdateStatusBarPopupIcon(aEvent)
 }
 function StatusbarViewPopupManager()
 {
-  // Open Data Manager permissions pane site and type prefilled to add.
-  toDataManager(hostUrl() + "|permissions|add|popup");
+  // Open the Cookies Permissions Manager prefilled with the site to add.
+  toPermissionsManager('cookie', hostUrl());
 }
 
 function popupBlockerMenuShowing(event)
