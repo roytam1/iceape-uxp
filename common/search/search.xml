@@ -136,6 +136,7 @@
       <property name="currentEngine">
         <setter><![CDATA[
           this.searchService.currentEngine = val;
+          this.searchService.defaultEngine = val;
           var os = Components.classes["@mozilla.org/observer-service;1"]
                              .getService(Components.interfaces.nsIObserverService);
           os.notifyObservers(null, "browser-search-engine-modified", "engine-current");

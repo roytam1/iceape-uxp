@@ -190,7 +190,7 @@
              grippytooltiptext="&navigationToolbar.tooltip;"
              fullscreentoolbar="true" customizable="true"
              toolbarname="&navbarCmd.label;" accesskey="&navbarCmd.accesskey;"
-             defaultset="back-button,forward-button,reload-button,stop-button,nav-bar-inner,search-button-container,print-button,throbber-box,window-controls"
+             defaultset="back-button,forward-button,reload-button,stop-button,nav-bar-inner,search-container,print-button,throbber-box,window-controls"
              context="toolbar-context-menu">
 
       <hbox id="window-controls" hidden="true" fullscreencontrol="true">
