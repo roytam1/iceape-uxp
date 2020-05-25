@@ -63,6 +63,13 @@ function ExpirePassword()
             .checkPassword("");
 }
 
+function toPasswordManager()
+{
+  toOpenWindowByType("Toolkit:PasswordManager",
+                     "chrome://passwordmgr/content/passwordManager.xul",
+                     "resizable");
+}
+
 function toDownloadManager()
 {
   //Ported extensions may only implement the Basic toolkit Interface
