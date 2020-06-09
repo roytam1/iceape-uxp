@@ -1591,10 +1591,16 @@ function updateCloseItems()
     closeItem.setAttribute("accesskey", gNavigatorBundle.getString("tabs.closeTab.accesskey"));
   }
 
-  var hideCloseOtherTabs = !browser || !browser.getStripVisibility();
-  document.getElementById("menu_closeOtherTabs").hidden = hideCloseOtherTabs;
-  if (!hideCloseOtherTabs)
-    document.getElementById("cmd_closeOtherTabs").setAttribute("disabled", hideCloseWindow);
+  var hideClose = !browser || !browser.getStripVisibility();
+  document.getElementById("menu_closeOtherTabs").hidden = hideClose;
+  if (!hideClose)
+    document.getElementById("cmd_closeOtherTabs").disabled = hideCloseWindow;
+
+  hideClose = !browser ||
+              (browser.getTabsToTheEndFrom(browser.mCurrentTab).length == 0);
+  document.getElementById("menu_closeTabsToTheEnd").hidden = hideClose;
+  if (!hideClose)
+    document.getElementById("cmd_closeTabsToTheEnd").disabled = hideClose;
 }
 
 function updateRecentMenuItems()
@@ -1686,6 +1692,12 @@ function BrowserCloseOtherTabs()
 {
   var browser = getBrowser();
   browser.removeAllTabsBut(browser.mCurrentTab);
+}
+
+function BrowserCloseTabsToTheEnd()
+{
+  var browser = getBrowser();
+  browser.removeTabsToTheEndFrom(browser.mCurrentTab);
 }
 
 function BrowserCloseTabOrWindow()
@@ -2569,7 +2581,6 @@ function WindowIsClosing()
   var browser = getBrowser();
   var cn = browser.tabContainer.childNodes;
   var numtabs = cn.length;
-  var reallyClose = true;
 
   if (!gPrivate && !/Mac/.test(navigator.platform) && isClosingLastBrowser()) {
     let closingCanceled = Components.classes["@mozilla.org/supports-PRBool;1"]
