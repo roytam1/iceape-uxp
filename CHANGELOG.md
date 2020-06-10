@@ -4,7 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
-## [v1.6]
+## [v1.8]
+
+## [v1.7] 2020-06-09
+### Added
+- Old search engine functionality, users can now modify XML directly in user profile rather than in packed JSON file.
+### Fixed
+- Broken search Engines
+
+
+## [v1.6] 2020-01-12
+### Added
+- Ability to build from UXP as upstream rather than completely internal.
+
+### Fixed
+- Broken Search Engines
 
 ## [v1.5] 2019-10-03
 ### Fixed
