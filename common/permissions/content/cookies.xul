@@ -88,14 +88,19 @@
       </grid>
     </hbox>
   </vbox>
-  <hbox align="end">
-    <hbox class="actionButtons" flex="1">
+  <vbox>
+    <hbox class="actionButtons" align="left" flex="1">
       <button id="removeSelectedCookies" disabled="true" icon="clear"
               oncommand="gCookiesWindow.deleteCookie();"/>
       <button id="removeAllCookies" disabled="true" icon="clear"
               oncommand="gCookiesWindow.deleteAllCookies();"/>
       <spacer flex="1"/>
 #ifndef XP_MACOSX
+    </hbox>
+  </vbox>
+  <separator class="groove" style="margin-left: 8px; margin-right: 8px"/>
+  <hbox align="end">
+    <hbox class="actionButtons" align="right" flex="1">
       <button oncommand="close();" icon="close"
               label="&button.close.label;" accesskey="&button.close.accesskey;"/>
 #endif
