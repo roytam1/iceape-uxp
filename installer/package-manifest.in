@@ -206,7 +206,7 @@
 @RESPATH@/components/dom_permissionsettings.xpt
 @RESPATH@/components/dom_power.xpt
 @RESPATH@/components/dom_push.xpt
-@RESPATH@/components/dom_presentation.xpt
+#@RESPATH@/components/dom_presentation.xpt
 @RESPATH@/components/dom_quota.xpt
 @RESPATH@/components/dom_range.xpt
 @RESPATH@/components/dom_security.xpt
@@ -219,7 +219,7 @@
 @RESPATH@/components/dom_system.xpt
 @RESPATH@/components/dom_traversal.xpt
 #ifdef MOZ_WEBSPEECH
-@RESPATH@/components/dom_webspeechrecognition.xpt
+#@RESPATH@/components/dom_webspeechrecognition.xpt
 @RESPATH@/components/dom_webspeechsynth.xpt
 #endif
 @RESPATH@/components/dom_workers.xpt
@@ -438,10 +438,10 @@
 @RESPATH@/components/nsHandlerService.manifest
 @RESPATH@/components/nsHelperAppDlg.js
 @RESPATH@/components/nsHelperAppDlg.manifest
-@RESPATH@/components/PresentationControlService.js
-@RESPATH@/components/PresentationDeviceInfoManager.manifest
-@RESPATH@/components/PresentationDeviceInfoManager.js
-@RESPATH@/components/BuiltinProviders.manifest
+#@RESPATH@/components/PresentationControlService.js
+#@RESPATH@/components/PresentationDeviceInfoManager.manifest
+#@RESPATH@/components/PresentationDeviceInfoManager.js
+#@RESPATH@/components/BuiltinProviders.manifest
 @RESPATH@/components/nsINIProcessor.js
 @RESPATH@/components/nsINIProcessor.manifest
 @RESPATH@/components/nsInputListAutoComplete.js
@@ -889,7 +889,7 @@ bin/libfreebl_32int64_3.so
 
 [inspector]
 #ifdef MOZ_OMNIJAR
-@RESPATH@/distribution/extensions/inspector@mozilla.org.xpi
+#@RESPATH@/distribution/extensions/inspector@mozilla.org.xpi
 #else
 @RESPATH@/extensions/inspector@mozilla.org/install.rdf
 @RESPATH@/extensions/inspector@mozilla.org/chrome.manifest
