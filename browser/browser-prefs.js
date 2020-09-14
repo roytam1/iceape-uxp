@@ -312,6 +312,11 @@ pref("browser.backspace_action", 0);
 // 2 - pre-populate site URL and pre-fetch certificate.
 pref("browser.ssl_override_behavior", 2);
 
+// Keep the stop button always active
+// The stop button WILL remain initally disabled until SOME navigation event
+// has occured since it lives in onStateChange.
+pref("browser.stopButton.alwaysEnabled", true);
+
 // if true, use full page zoom instead of text zoom
 pref("browser.zoom.full", true);
 

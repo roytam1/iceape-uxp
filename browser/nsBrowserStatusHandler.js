@@ -257,7 +257,12 @@ nsBrowserStatusHandler.prototype =
 
       // XXX: These need to be based on window activity...
       // XXXjag: <command id="cmd_stop"/> ?
-      this.stopButton.disabled = true;
+      if (Services.prefs.getBoolPref("browser.stopButton.alwaysEnabled", false)) {
+        this.stopButton.disabled = false;
+      } else {
+        this.stopButton.disabled = true;
+      }
+
       this.stopMenu.setAttribute('disabled', 'true');
       this.stopContext.setAttribute('disabled', 'true');
 
