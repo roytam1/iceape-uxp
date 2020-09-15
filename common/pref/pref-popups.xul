@@ -69,7 +69,7 @@
                 label="&viewPermissions.label;"
                 accesskey="&viewPermissions.accesskey;"
                 preference="pref.advanced.popups.disable_button.view_popups"
-                oncommand="toDataManager('|permissions');"/>
+                oncommand="toPermissionsManager('popup');"/>
       </hbox>
       <separator class="thin"/>
       <description id="whenBlock">&whenBlock.description;</description>

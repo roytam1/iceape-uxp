@@ -32,7 +32,7 @@
 <!ENTITY acceptforNDays.accesskey       "f">
 <!ENTITY days.label                     "days">
 
-<!ENTITY manageCookies.label            "Manage Cookies and Sites">
+<!ENTITY manageCookies.label            "Manage Cookies">
 <!ENTITY manageCookiesDescription.label "Allows you to view and manage stored cookies and per-website settings for accepting and rejecting cookies. Per-website settings will override the settings above.">
 
 <!ENTITY viewCookies.label              "Cookie Manager">

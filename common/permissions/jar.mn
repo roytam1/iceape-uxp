@@ -1,0 +1,20 @@
+#filter substitution
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+comm.jar:
+% content communicator %content/communicator/
+  content/communicator/permissions/cookies.css                       (content/cookies.css)
+* content/communicator/permissions/cookies.js                        (content/cookies.js)
+* content/communicator/permissions/cookies.xul                       (content/cookies.xul)
+  content/communicator/permissions/permissions.css                   (content/permissions.css)
+* content/communicator/permissions/permissions.js                    (content/permissions.js)
+  content/communicator/permissions/permissions.xul                   (content/permissions.xul)
+
+@AB_CD@.jar:
+% locale communicator @AB_CD@ %locale/@AB_CD@/communicator/
+  locale/@AB_CD@/communicator/permissions/cookies.dtd                (locale/cookies.dtd)
+  locale/@AB_CD@/communicator/permissions/cookies.properties         (locale/cookies.properties)
+  locale/@AB_CD@/communicator/permissions/permissions.dtd            (locale/permissions.dtd)
+  locale/@AB_CD@/communicator/permissions/permissions.properties     (locale/permissions.properties)

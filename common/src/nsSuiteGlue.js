@@ -38,6 +38,9 @@ XPCOMUtils.defineLazyModuleGetter(this, "BookmarkJSONUtils",
 XPCOMUtils.defineLazyModuleGetter(this, "Task",
                                   "resource://gre/modules/Task.jsm");
 
+XPCOMUtils.defineLazyModuleGetter(this, "AppConstants",
+                                  "resource://gre/modules/AppConstants.jsm");
+
 XPCOMUtils.defineLazyGetter(this, "DebuggerServer", () => {
   var tmp = {};
   Components.utils.import("resource://devtools/shared/Loader.jsm", tmp);
@@ -247,7 +250,7 @@ SuiteGlue.prototype = {
         // Since this is a web notification, there's probably a browser window.
         var mostRecentBrowserWindow = Services.wm.getMostRecentWindow("navigator:browser");
         if (mostRecentBrowserWindow)
-          mostRecentBrowserWindow.toDataManager("|permissions");
+          mostRecentBrowserWindow.toPermissionsManager('desktop-notification');
         break;
       case "timer-callback":
         // Load the Login Manager data from disk off the main thread, some time
@@ -814,6 +817,10 @@ SuiteGlue.prototype = {
    * having updates off and an old build that likely should be updated.
    */
   _shouldShowUpdateWarning: function () {
+    // If the Updater is not available we don't show the warning.
+    if (!AppConstants.MOZ_UPDATER) {
+      return false;  
+    }
     // Look for an unconditional override pref. If set, do what it says.
     // (true --> never show, false --> always show)
     try {

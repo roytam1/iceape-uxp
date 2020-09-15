@@ -60,7 +60,7 @@
           <label id="allowedSitesLink"
                  class="text-link"
                  value="&allowedSitesLink.label;"
-                 onclick="toDataManager('|permissions');"/>
+                 onclick="toPermissionsManager('install');"/>
         </hbox>
         <hbox class="indent">
            <checkbox id="addOnsUpdatesEnabled"

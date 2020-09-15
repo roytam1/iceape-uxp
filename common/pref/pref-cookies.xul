@@ -82,7 +82,7 @@
                 label="&viewCookies.label;"
                 accesskey="&viewCookies.accesskey;"
                 preference="pref.advanced.cookies.disable_button.view_cookies"
-                oncommand="toDataManager('|cookies');"/>
+                oncommand="toCookieManager();"/>
       </hbox>
     </groupbox>
   </prefpane>

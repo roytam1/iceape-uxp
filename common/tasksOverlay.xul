@@ -48,7 +48,7 @@
             <menupopup id="passwordPopup">
               <menuitem label="&passwordDisplayCmd.label;"
                         accesskey="&passwordDisplayCmd.accesskey;"
-                        oncommand="toDataManager('|passwords');"/>
+                        oncommand="toPasswordManager();"/>
               <menuitem label="&passwordExpireCmd.label;"
                         accesskey="&passwordExpireCmd.accesskey;"
                         oncommand="ExpirePassword();"/>

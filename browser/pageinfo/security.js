@@ -96,7 +96,7 @@ var security = {
     catch (e) {
     }
 
-    toDataManager(hostName + '|cookies');
+    toPermissionsManager('cookie', hostName);
   },
 
   /**
@@ -104,7 +104,17 @@ var security = {
    */
   viewPasswords : function()
   {
-    toDataManager(this._getSecurityInfo().hostName + '|passwords');
+    var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"]
+                       .getService(Components.interfaces.nsIWindowMediator);
+    var win = wm.getMostRecentWindow("Toolkit:PasswordManager");
+    if (win) {
+      win.setFilter(this._getSecurityInfo().hostName);
+      win.focus();
+    }
+    else
+      window.openDialog("chrome://passwordmgr/content/passwordManager.xul",
+                        "Toolkit:PasswordManager", "", 
+                        {filterString : this._getSecurityInfo().hostName});
   },
 
   _cert : null
