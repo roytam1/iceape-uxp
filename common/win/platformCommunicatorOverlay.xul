@@ -59,11 +59,6 @@
 
   <key id="key_toggleFolderPane" keycode="VK_F9"/>
 
-  <menupopup id="helpPopup">
-      <menuitem label="&helpForIEUsers.label;" accesskey="&helpForIEUsers.accesskey;" insertafter="help"
-                oncommand="openHelp('ieusers', 'chrome://communicator/locale/help/suitehelp.rdf');"/>
-  </menupopup>
-
   <!-- Tasks Keys -->
   <keyset id="tasksKeys">
     <key id="key_openHelp"
