@@ -25,8 +25,6 @@
 <!ENTITY openHelpCmd.label              "Help Contents">
 <!ENTITY openHelpCmd.accesskey          "H">
 <!ENTITY openHelpCmd.key                "VK_F1">
-<!ENTITY helpForIEUsers.label           "For Internet Explorer Users">
-<!ENTITY helpForIEUsers.accesskey       "I">
 <!-- LOCALIZATION NOTE some localizations need to change the
                        "Help" menu label on Windows -->
 <!ENTITY helpMenu.label                 "Help"> 
