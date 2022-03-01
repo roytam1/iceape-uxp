@@ -1090,3 +1090,5 @@ pref("security.sandbox.content.tempDirSuffix", "");
 
 // Url shown when you type moz://a
 pref("toolkit.mozprotocol.url", "http://www.seamonkey-project.org/");
+
+pref("devtools.webide.widget.enabled", false);
