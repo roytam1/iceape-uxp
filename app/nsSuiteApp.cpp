@@ -36,7 +36,6 @@
 
 #include "nsXPCOMPrivate.h" // for MAXPATHLEN and XPCOM_DLL
 
-#include "mozilla/Telemetry.h"
 #include "mozilla/WindowsDllBlocklist.h"
 
 #if !defined(MOZ_WIDGET_COCOA) && !defined(MOZ_WIDGET_ANDROID) \
@@ -115,8 +114,6 @@ static bool IsArg(const char* arg, const char* s)
 XRE_GetFileFromPathType XRE_GetFileFromPath;
 XRE_CreateAppDataType XRE_CreateAppData;
 XRE_FreeAppDataType XRE_FreeAppData;
-XRE_TelemetryAccumulateType XRE_TelemetryAccumulate;
-XRE_StartupTimelineRecordType XRE_StartupTimelineRecord;
 XRE_mainType XRE_main;
 XRE_StopLateWriteChecksType XRE_StopLateWriteChecks;
 XRE_XPCShellMainType XRE_XPCShellMain;
@@ -129,8 +126,6 @@ static const nsDynamicFunctionLoad kXULFuncs[] = {
     { "XRE_GetFileFromPath", (NSFuncPtr*) &XRE_GetFileFromPath },
     { "XRE_CreateAppData", (NSFuncPtr*) &XRE_CreateAppData },
     { "XRE_FreeAppData", (NSFuncPtr*) &XRE_FreeAppData },
-    { "XRE_TelemetryAccumulate", (NSFuncPtr*) &XRE_TelemetryAccumulate },
-    { "XRE_StartupTimelineRecord", (NSFuncPtr*) &XRE_StartupTimelineRecord },
     { "XRE_main", (NSFuncPtr*) &XRE_main },
     { "XRE_StopLateWriteChecks", (NSFuncPtr*) &XRE_StopLateWriteChecks },
     { "XRE_XPCShellMain", (NSFuncPtr*) &XRE_XPCShellMain },
@@ -295,7 +290,6 @@ InitXPCOMGlue(const char *argv0, nsIFile **xreDirectory)
 
 int main(int argc, char* argv[], char* envp[])
 {
-  mozilla::TimeStamp start = mozilla::TimeStamp::Now();
 
 #ifdef HAS_DLL_BLOCKLIST
   DllBlocklist_Initialize();
@@ -336,7 +330,6 @@ int main(int argc, char* argv[], char* envp[])
     return 255;
   }
 
-  XRE_StartupTimelineRecord(mozilla::StartupTimeline::START, start);
 
 #ifdef MOZ_BROWSER_CAN_BE_CONTENTPROC
   XRE_EnableSameExecutableForContentProc();
