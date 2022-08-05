@@ -8,8 +8,8 @@
  * modules/libpref/src/init/all.js
  */
 
-/* filter substitution
- *
+#filter substitution
+/*
  * SYNTAX HINTS:
  *
  *  - Dashes are delimiters; use underscores instead.
@@ -1092,3 +1092,5 @@ pref("security.sandbox.content.tempDirSuffix", "");
 pref("toolkit.mozprotocol.url", "http://www.seamonkey-project.org/");
 
 pref("devtools.webide.widget.enabled", false);
+
+#include uaoverrides.inc
