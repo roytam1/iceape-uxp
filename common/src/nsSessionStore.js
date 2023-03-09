@@ -2546,6 +2546,9 @@ SessionStoreService.prototype = {
           tab.label = activePageData.url;
           tab.crop = "center";
         }
+        if (this._prefBranch.getBoolPref("tabs.fadeLabels")) {
+          tab.crop = "clip";
+        }
       }
     }
 

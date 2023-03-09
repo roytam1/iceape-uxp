@@ -1378,7 +1378,11 @@
         <body>
           <![CDATA[
             aTab.label = this.mStringBundle.getString("tabs.loading");
-            aTab.crop = "end";
+            if (Services.prefs.getBoolPref("browser.tabs.fadeLabels")) {
+              aTab.crop = "clip";
+            } else {
+              aTab.crop = "end";
+            }
             this._tabAttrModified(aTab, ["label", "crop"]);
           ]]>
         </body>
@@ -1417,6 +1421,11 @@
               else
                 title = this.mStringBundle.getString("tabs.untitled");
             }
+
+            if (Services.prefs.getBoolPref("browser.tabs.fadeLabels")) {
+              crop = "clip";
+            }
+
             aTab.label = title;
             aTab.crop = crop;
           ]]>
@@ -3202,7 +3211,11 @@
 
           var t = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", "tab");
           t.setAttribute("label", this.mStringBundle.getString("tabs.untitled"));
-          t.setAttribute("crop", "end");
+          if (Services.prefs.getBoolPref("browser.tabs.fadeLabels")) {
+            t.setAttribute("crop", "clip");
+          } else {
+            t.setAttribute("crop", "end");
+          }
           t.className = "tabbrowser-tab";
           t.style.maxWidth = this.mPrefs.getIntPref("browser.tabs.tabMaxWidth") + "px";
           t.style.minWidth = this.mPrefs.getIntPref("browser.tabs.tabMinWidth") + "px";

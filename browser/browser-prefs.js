@@ -277,6 +277,10 @@ pref("browser.tabs.closeButtons", 3);
 // true   The mouse wheel advances the selected tab.
 pref("browser.tabs.mouseScrollAdvancesTab", false);
 
+// Whether to fade tab labels instead of using ellipses when cutting off
+// long page titles.
+pref("browser.tabs.fadeLabels", true);
+
 // lets new tab/window load something different than first window
 // -1 - use navigator startup preference
 //  0 - loads blank page
