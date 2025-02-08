@@ -573,7 +573,7 @@
                       oncommand="toCookieManager();
                                  event.stopPropagation();"/>
             <menuitem id="menuitem_cookiePermissions"
-                      label="&cookieCookiesPermissionsCmd.label;",
+                      label="&cookieCookiesPermissionsCmd.label;"
                       accesskey="&cookieCookiesPermissionsCmd.accesskey;"
                       oncommand="toPermissionsManager('cookie', hostUrl());
                                  event.stopPropagation();"/>
