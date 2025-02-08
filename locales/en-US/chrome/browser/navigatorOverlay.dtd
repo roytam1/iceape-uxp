@@ -101,6 +101,8 @@ left instead of right. -->
 <!ENTITY cookieMessageTitle.label "Cookie Permissions Changed">
 <!ENTITY cookieDisplayCookiesCmd.label "Manage Stored Cookies">
 <!ENTITY cookieDisplayCookiesCmd.accesskey "M">
+<!ENTITY cookieCookiesPermissionsCmd.label "Manage Cookie Permissions">
+<!ENTITY cookieCookiesPermissionsCmd.accesskey "P">
 <!ENTITY cookieAllowCookiesCmd.label "Allow Cookies from This Website">
 <!ENTITY cookieAllowCookiesCmd.accesskey "A">
 <!ENTITY cookieAllowCookiesMsg.label "Cookies from this website will always be allowed.">
