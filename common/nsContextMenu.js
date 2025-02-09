@@ -520,13 +520,6 @@ nsContextMenu.prototype = {
 
     const xulNS = "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
 
-    if (aNode.nodeType == Node.DOCUMENT_NODE ||
-        // Not display on XUL element but relax for <label class="text-link">
-        (aNode.namespaceURI == xulNS && !isXULTextLinkLabel(aNode))) {
-      this.shouldDisplay = false;
-      return;
-    }
-
     // Initialize contextual info.
     this.onImage               = false;
     this.onLoadedImage         = false;
@@ -559,6 +552,13 @@ nsContextMenu.prototype = {
 
     // Remember the node that was clicked.
     this.target = aNode;
+
+    if (aNode.nodeType == Node.DOCUMENT_NODE ||
+        // Not display on XUL element but relax for <label class="text-link">
+        (aNode.namespaceURI == xulNS && !isXULTextLinkLabel(aNode))) {
+      this.shouldDisplay = false;
+      return;
+    }
 
     this.browser = this.target.ownerDocument.defaultView
                               .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
