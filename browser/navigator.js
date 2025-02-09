@@ -1331,7 +1331,7 @@ var BrowserSearch = {
     else
       engine = Services.search.defaultEngine;
 
-    var submission = engine.getSubmission(aSearchText); // HTML response
+    var submission = engine.getSubmission('"' + aSearchText + '"'); // HTML response
 
     // getSubmission can return null if the engine doesn't have a URL
     // with a text/html response type.  This is unlikely (since
