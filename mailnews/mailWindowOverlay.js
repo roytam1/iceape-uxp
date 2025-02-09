@@ -1716,7 +1716,7 @@ function MsgOpenSearch(aSearchStr, aEvent)
 {
   // If you change /suite/navigator/navigator.js->BrowserSearch::loadSearch()
   // make sure you make corresponding changes here.
-  var submission = Services.search.defaultEngine.getSubmission(aSearchStr);
+  var submission = Services.search.defaultEngine.getSubmission('"' + aSearchStr + '"');
   if (!submission)
     return;
 

@@ -1434,7 +1434,7 @@ nsContextMenu.prototype = {
       searchStr = RegExp.lastMatch;
     }
 
-    return searchStr.trim().replace(/\s+/g, " ");
+    return searchStr.trim().replace(/\s+/g, " ").replace(/"/g, '');
   },
 
   // Returns true if anything is selected.
