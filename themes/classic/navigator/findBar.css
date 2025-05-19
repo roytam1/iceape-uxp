@@ -25,25 +25,35 @@ findbar[hidden] {
 
 /* find-next button */
 
-.findbar-find-next > .toolbarbutton-icon {
-  -moz-appearance: button-arrow-next;
+.findbar-find-next {
+  list-style-image: url("chrome://global/skin/icons/find.png");
+  -moz-image-region: rect(0px 16px 16px 0px);
+}
+
+.findbar-find-next[disabled="true"] {
+  -moz-image-region: rect(32px 16px 48px 0px) !important;
 }
 
 /* find-previous button */
 
-.findbar-find-previous > .toolbarbutton-icon {
-  -moz-appearance: button-arrow-previous;
+.findbar-find-previous {
+  list-style-image: url("chrome://global/skin/icons/find.png");
+  -moz-image-region: rect(0px 32px 16px 16px);
+}
+
+.findbar-find-previous[disabled="true"] {
+  -moz-image-region: rect(32px 32px 48px 16px) !important;
 }
 
 /* highlight button */
 
 .findbar-highlight {
   list-style-image: url("chrome://global/skin/icons/find.png");
-  -moz-image-region: rect(0px, 16px, 16px, 0px);
+  -moz-image-region: rect(0px 48px 16px 32px);
 }
 
 .findbar-highlight[disabled="true"] {
-  -moz-image-region: rect(16px, 16px, 32px, 0px);
+  -moz-image-region: rect(32px 48px 48px 32px) !important;
 }
 
 .find-status-icon {
@@ -57,16 +67,14 @@ findbar[hidden] {
 }
 
 .findbar-find-status,
-.findbar-matches {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
+.found-matches {
+  margin: 0 !important;
   -moz-margin-start: 3px !important;
-  -moz-margin-end: 0 !important;
   padding: 2px !important;
 }
 
 .find-status-icon[status="notfound"] {
-  list-style-image: url("moz-icon://stock/gtk-dialog-error?size=menu");
+  list-style-image: url("chrome://global/skin/icons/information-16.png");
 }
 
 .find-status-icon[status="pending"] {
