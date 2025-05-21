@@ -595,8 +595,9 @@ var gEditItemOverlay = {
 
   onKeywordFieldBlur: function EIO_onKeywordFieldBlur() {
     var keyword = this._element("keywordField").value;
-    if (keyword != PlacesUtils.bookmarks.getKeywordForBookmark(this._itemId)) {
-      var txn = new PlacesEditBookmarkKeywordTransaction(this._itemId, keyword);
+    var oldKeyword = PlacesUtils.bookmarks.getKeywordForBookmark(this._itemId);
+    if (keyword != oldKeyword) {
+      var txn = new PlacesEditBookmarkKeywordTransaction(this._itemId, keyword, null, oldKeyword);
       PlacesUtils.transactionManager.doTransaction(txn);
     }
   },
