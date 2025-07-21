@@ -14,7 +14,7 @@ html {
 
 body {
   margin: 0px;
-  overflow: -moz-hidden-unscrollable;
+  overflow: clip;
   visibility: hidden;
 }
 

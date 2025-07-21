@@ -57,7 +57,7 @@
 
 #structToolbar {
   min-width: 1px;
-  overflow: -moz-hidden-unscrollable;
+  overflow: clip;
 }
 
 #structSpacer {

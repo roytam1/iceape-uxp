@@ -237,7 +237,7 @@ groupbox {
   min-height: 52px;
   max-width: 82px;
   max-height: 52px;
-  overflow: -moz-hidden-unscrollable;
+  overflow: clip;
 }
 
 #preview-image-holder {
